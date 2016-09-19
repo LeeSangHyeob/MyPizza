@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" spacing="10.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Project1.v2.controller.SalesController">
+    <children>
+        <Label alignment="CENTER" prefHeight="200.0" prefWidth="200.0" text="Select Month" textAlignment="CENTER" />
+        <ComboBox fx:id="cbox" onAction="#showChart" prefWidth="150.0" promptText="2016년" />
+      <AnchorPane prefHeight="250.0" prefWidth="400.0">
+         <children>
+            <LineChart prefHeight="250.0" prefWidth="400.0" visible="false">
+              <xAxis>
+                <CategoryAxis side="BOTTOM" />
+              </xAxis>
+              <yAxis>
+                <NumberAxis side="LEFT" />
+              </yAxis>
+            </LineChart>
+            <TableView prefHeight="250.0" prefWidth="400.0" visible="false">
+              <columns>
+                <TableColumn prefWidth="75.0" text="날짜" />
+                <TableColumn prefWidth="75.0" text="주문번호" />
+                  <TableColumn prefWidth="75.0" text="금액" />
+              </columns>
+            </TableView>
+         </children>
+      </AnchorPane>
+      <Label text="합계 : ">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <HBox alignment="CENTER" prefHeight="42.0" prefWidth="600.0" spacing="50.0">
+         <children>
+            <Button mnemonicParsing="false" text="리스트" />
+            <Button mnemonicParsing="false" text="닫기" />
+         </children>
+      </HBox>
+    </children>
+</VBox>

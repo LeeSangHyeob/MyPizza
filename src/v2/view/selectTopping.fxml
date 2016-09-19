@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Project1.v2.controller.SelectController">
+    <bottom>
+        <Pane prefHeight="50.0" prefWidth="200.0" BorderPane.alignment="BOTTOM_LEFT">
+            <children>
+                <HBox alignment="CENTER" layoutX="1.0" layoutY="4.0" prefHeight="40.0" prefWidth="1200.0" spacing="700.0">
+                    <children>
+                        <Button fx:id="prev" mnemonicParsing="false" onAction="#prevPage" prefHeight="37.0" prefWidth="48.0" text="◀">
+                            <font>
+                                <Font size="20.0" />
+                            </font>
+                            <HBox.margin>
+                                <Insets left="50.0" />
+                            </HBox.margin></Button>
+                        <Button fx:id="next" mnemonicParsing="false" onAction="#nextPage" prefHeight="34.0" prefWidth="48.0" text="▶">
+                            <HBox.margin>
+                                <Insets />
+                            </HBox.margin>
+                            <font>
+                                <Font size="20.0" />
+                            </font></Button>
+                    </children>
+                </HBox>
+            </children></Pane>
+    </bottom>
+    <right>
+        <Pane prefHeight="150.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+            <children>
+                <ScrollBar layoutX="72.0" layoutY="6.0" orientation="VERTICAL" prefHeight="595.0" prefWidth="14.0" />
+            </children></Pane>
+    </right>
+    <top>
+        <HBox prefHeight="100.0" prefWidth="1200.0" BorderPane.alignment="CENTER">
+            <children>
+                <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="/Project1/img/main.png" />
+                    </image>
+                </ImageView>
+                <VBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="1200.0">
+                    <children>
+                        <Label alignment="CENTER" prefHeight="40.0" prefWidth="100.0" text="label" textAlignment="JUSTIFY">
+                            <font>
+                                <Font size="16.0" />
+                            </font>
+                        </Label>
+                        <ToolBar prefHeight="60.0" prefWidth="1100.0">
+                            <items>
+                                <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" textAlignment="CENTER">
+                                    <opaqueInsets>
+                                        <Insets />
+                                    </opaqueInsets>
+                                </Button>
+                                <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" textAlignment="CENTER">
+                                    <opaqueInsets>
+                                        <Insets />
+                                    </opaqueInsets>
+                                </Button>
+                                <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" textAlignment="CENTER">
+                                    <opaqueInsets>
+                                        <Insets />
+                                    </opaqueInsets>
+                                </Button>
+                            </items>
+                            <opaqueInsets>
+                                <Insets left="5.0" right="5.0" />
+                            </opaqueInsets>
+                        </ToolBar>
+                    </children>
+                </VBox>
+            </children>
+        </HBox>
+    </top>
+    <left>
+        <AnchorPane prefWidth="150.0" BorderPane.alignment="CENTER">
+            <children>
+                <Pane fx:id="infoPane" layoutX="-80.0" prefHeight="500.0" prefWidth="150.0">
+                    <children>
+                        <VBox fx:id="vone" alignment="CENTER" layoutX="-25.0" layoutY="25.0" prefHeight="500.0" prefWidth="120.0" style="-fx-background-color: greenyellow;">
+                            <children>
+                                <Label fx:id="labelone" />
+                            </children></VBox>
+                        <Button fx:id="infoBtn" layoutX="85.0" layoutY="250.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="1.0" text="∥" />
+                    </children>
+                </Pane>
+            </children>
+        </AnchorPane>
+    </left>
+    <center>
+        <GridPane alignment="CENTER" BorderPane.alignment="CENTER">
+            <columnConstraints>
+                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints maxHeight="242.0" minHeight="10.0" prefHeight="115.0" valignment="CENTER" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="173.0" minHeight="0.0" prefHeight="35.0" valignment="CENTER" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="201.0" minHeight="10.0" prefHeight="115.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="131.0" minHeight="10.0" prefHeight="35.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="115.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="35.0" vgrow="SOMETIMES" />
+            </rowConstraints>
+            <children>
+                <HBox alignment="CENTER" prefHeight="52.0" prefWidth="407.0" GridPane.rowIndex="1">
+                    <children>
+
+                        <RadioButton fx:id="btnm1" mnemonicParsing="false" text="M">
+                            <toggleGroup>
+                                <ToggleGroup fx:id="group" />
+                            </toggleGroup>
+                        </RadioButton>
+
+                        <RadioButton fx:id="btnl1" mnemonicParsing="false" text="L" toggleGroup="$group" />
+                    </children>
+                </HBox>
+                <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                    <children>
+                        <RadioButton fx:id="btnm2" mnemonicParsing="false" text="M" toggleGroup="$group" />
+                        <RadioButton fx:id="btnl2" mnemonicParsing="false" text="L" toggleGroup="$group" />
+                    </children>
+                </HBox>
+                <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                    <children>
+                        <RadioButton fx:id="btnm3" mnemonicParsing="false" text="M" toggleGroup="$group" />
+                        <RadioButton fx:id="btnl3" mnemonicParsing="false" text="L" toggleGroup="$group" />
+                    </children>
+                </HBox>
+                <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                    <children>
+                        <RadioButton fx:id="btnm4" mnemonicParsing="false" text="M" toggleGroup="$group" />
+                        <RadioButton fx:id="btnl4" mnemonicParsing="false" text="L" toggleGroup="$group" />
+                    </children>
+                </HBox>
+                <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="3">
+                    <children>
+                        <RadioButton fx:id="btnm5" mnemonicParsing="false" text="M" toggleGroup="$group" />
+                        <RadioButton fx:id="btnl5" mnemonicParsing="false" text="L" toggleGroup="$group" />
+                    </children>
+                </HBox>
+                <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="5">
+                    <children>
+                        <RadioButton fx:id="btnm6" mnemonicParsing="false" text="M" toggleGroup="$group" />
+                        <RadioButton fx:id="btnl6" mnemonicParsing="false" text="L" toggleGroup="$group" />
+                    </children>
+                </HBox>
+                <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                    <children>
+                        <RadioButton fx:id="btnm7" mnemonicParsing="false" text="M" toggleGroup="$group" />
+                        <RadioButton fx:id="btnl7" mnemonicParsing="false" text="L" toggleGroup="$group" />
+                    </children>
+                </HBox>
+                <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="3">
+                    <children>
+                        <RadioButton fx:id="btnm8" mnemonicParsing="false" text="M" toggleGroup="$group" />
+                        <RadioButton fx:id="btnl8" mnemonicParsing="false" text="L" toggleGroup="$group" />
+                    </children>
+                </HBox>
+                <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="5">
+                    <children>
+                        <RadioButton fx:id="btnm9" mnemonicParsing="false" text="M" toggleGroup="$group" />
+                        <RadioButton fx:id="btnl9" mnemonicParsing="false" text="L" toggleGroup="$group" />
+                    </children>
+                </HBox>
+                <VBox alignment="TOP_CENTER" prefHeight="384.0" prefWidth="317.0">
+                    <children>
+                        <ImageView fitHeight="110.0" fitWidth="174.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="/Project1/img/main.png" />
+                            </image>
+                            <VBox.margin>
+                                <Insets top="10.0" />
+                            </VBox.margin>
+                        </ImageView>
+                    </children>
+                </VBox>
+                <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="2">
+                    <children>
+                        <ImageView fitHeight="112.0" fitWidth="97.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="/Project1/img/main.png" />
+                            </image>
+                        </ImageView>
+                    </children>
+                </VBox>
+                <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="4">
+                    <children>
+                        <ImageView fitHeight="116.0" fitWidth="96.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="/Project1/img/main.png" />
+                            </image>
+                        </ImageView>
+                    </children>
+                </VBox>
+                <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1">
+                    <children>
+                        <ImageView fitHeight="110.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="/Project1/img/main.png" />
+                            </image>
+                        </ImageView>
+                    </children>
+                </VBox>
+                <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                    <children>
+                        <ImageView fitHeight="110.0" fitWidth="99.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="/Project1/img/main.png" />
+                            </image>
+                        </ImageView>
+                    </children>
+                </VBox>
+                <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                    <children>
+                        <ImageView fitHeight="109.0" fitWidth="91.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="/Project1/img/main.png" />
+                            </image>
+                        </ImageView>
+                    </children>
+                </VBox>
+                <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="2">
+                    <children>
+                        <ImageView fitHeight="107.0" fitWidth="98.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="/Project1/img/main.png" />
+                            </image>
+                        </ImageView>
+                    </children>
+                </VBox>
+                <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                    <children>
+                        <ImageView fitHeight="108.0" fitWidth="102.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="/Project1/img/main.png" />
+                            </image>
+                        </ImageView>
+                    </children>
+                </VBox>
+                <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="2" GridPane.rowIndex="4">
+                    <children>
+                        <ImageView fitHeight="106.0" fitWidth="97.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="/Project1/img/main.png" />
+                            </image>
+                        </ImageView>
+                    </children>
+                </VBox>
+            </children>
+            <padding>
+                <Insets top="50.0" />
+            </padding>
+        </GridPane>
+    </center>
+</BorderPane>
