@@ -39,7 +39,7 @@ public class MenuController extends LoginController implements Initializable {
 
         if (userid.equals("admin")){
             if (e.getTarget() == sales) {
-                loader = new FXMLLoader(getClass().getResource("../../resources/fxml/showSales.fxml"));
+                loader = new FXMLLoader(getClass().getResource("/fxml/showSales.fxml"));
                 try {
                     root = loader.load();
                 } catch (Exception ex) {
@@ -58,12 +58,12 @@ public class MenuController extends LoginController implements Initializable {
         } else {
             if (e.getTarget() == basic) {
                 s = 0;
-                loader = new FXMLLoader(getClass().getResource("../../resources/fxml/selectBasic.fxml"));
+                loader = new FXMLLoader(getClass().getResource("/fxml/selectBasic.fxml"));
             } else if (e.getTarget() == custom) {
                 s = 1;
-                loader = new FXMLLoader(getClass().getResource("../../resources/fxml/selectDough.fxml"));
+                loader = new FXMLLoader(getClass().getResource("/fxml/selectDough.fxml"));
             } else if (e.getTarget() == list){
-                loader = new FXMLLoader(getClass().getResource("../../resources/fxml/showOrder.fxml"));
+                loader = new FXMLLoader(getClass().getResource("/fxml/showOrder.fxml"));
             }
             try {
                 root = loader.load();

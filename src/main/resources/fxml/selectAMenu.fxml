@@ -19,7 +19,7 @@
             <children>
                 <ImageView fx:id="logo" fitHeight="152.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
                     <image>
-                        <Image url="@/img/logo2.png" />
+                        <Image url="/img/logo2.png" />
                     </image>
                 </ImageView>
                 <VBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="1200.0" style="-fx-background-color: D91E3E;">

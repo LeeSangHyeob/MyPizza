@@ -74,13 +74,13 @@ public class SelectController extends LoginController implements Initializable {
 
         if (i == 0) {
             if (cnt != 0) {
-                loader = new FXMLLoader(getClass().getResource("../../resources/fxml/selectSource.fxml"));
+                loader = new FXMLLoader(getClass().getResource("/fxml/selectSource.fxml"));
                 i = 1;
             } else showWarn("메뉴를 선택해주세요.");
             System.out.println(cnt);
         } else if (i == 1) {
             if (cnt != 0) {
-                loader = new FXMLLoader(getClass().getResource("../../resources/fxml/selectTopping.fxml"));
+                loader = new FXMLLoader(getClass().getResource("/fxml/selectTopping.fxml"));
                 i = 2;
             } else showWarn("메뉴를 선택해주세요.");
             tname1 = "";
@@ -93,12 +93,12 @@ public class SelectController extends LoginController implements Initializable {
             System.out.println(cnt);
         } else if (i == 2) {
             if (cnt != 0) {
-                loader = new FXMLLoader(getClass().getResource("../../resources/fxml/selectSideMenu.fxml"));
+                loader = new FXMLLoader(getClass().getResource("/fxml/selectSideMenu.fxml"));
                 i = 3;
             } else showWarn("메뉴를 선택해주세요");
             System.out.println(cnt);
         } else if (i == 3) {
-            loader = new FXMLLoader(getClass().getResource("../../resources/fxml/payment.fxml"));
+            loader = new FXMLLoader(getClass().getResource("/fxml/payment.fxml"));
             i = 0;
         }
 
@@ -130,7 +130,7 @@ public class SelectController extends LoginController implements Initializable {
             sidename1 = "";
             sidename2 = "";
             sidename3 = "";
-            loader = new FXMLLoader(getClass().getResource("../../resources/fxml/selectTopping.fxml"));
+            loader = new FXMLLoader(getClass().getResource("/fxml/selectTopping.fxml"));
             i = 2;
         } else if (i == 2) {
             tname1 = "";
@@ -138,14 +138,14 @@ public class SelectController extends LoginController implements Initializable {
             tname3 = "";
             tname4 = "";
             sname = "";
-            loader = new FXMLLoader(getClass().getResource("../../resources/fxml/selectSource.fxml"));
+            loader = new FXMLLoader(getClass().getResource("/fxml/selectSource.fxml"));
             i = 1;
         } else if (i == 1) {
             dname = "";
-            loader = new FXMLLoader(getClass().getResource("../../resources/fxml/selectDough.fxml"));
+            loader = new FXMLLoader(getClass().getResource("/fxml/selectDough.fxml"));
             i = 0;
         } else if (i == 0) {
-            loader = new FXMLLoader(getClass().getResource("../../resources/fxml/selectCMenu.fxml"));
+            loader = new FXMLLoader(getClass().getResource("/fxml/selectCMenu.fxml"));
         }
 
         try {

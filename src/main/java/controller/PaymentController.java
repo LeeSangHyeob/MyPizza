@@ -36,7 +36,7 @@ public class PaymentController extends SelectController implements Initializable
     public void pay(ActionEvent ae) {
 
         Parent root = null;
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("../../resources/fxml/successPay.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/successPay.fxml"));
 
         try {
             root = loader.load();

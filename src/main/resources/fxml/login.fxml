@@ -68,7 +68,7 @@
                            <graphic>
                               <ImageView fitHeight="40.0" fitWidth="40.0" onDragDetected="#actTool" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@/img/set.png" />
+                                    <Image url="/img/set.png" />
                                  </image>
                               </ImageView>
                            </graphic>
@@ -89,7 +89,7 @@
     <center>
         <ImageView fitHeight="490.0" fitWidth="471.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="TOP_CENTER">
             <image>
-                <Image url="@/img/logo2.png" />
+                <Image url="/img/logo2.png" />
             </image>
         </ImageView>
     </center>
