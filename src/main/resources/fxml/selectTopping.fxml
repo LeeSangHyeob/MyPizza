@@ -7,7 +7,7 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Project1.v3.controller.SelectController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.SelectController">
     <bottom>
         <Pane prefHeight="50.0" prefWidth="200.0" BorderPane.alignment="BOTTOM_LEFT">
             <children>
@@ -42,7 +42,7 @@
             <children>
                 <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
                     <image>
-                        <Image url="@../../img/logo2.png" />
+                        <Image url="/img/logo2.png" />
                     </image>
                 </ImageView>
                 <VBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="1200.0">
@@ -61,7 +61,7 @@
                                     <graphic>
                                         <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                                             <image>
-                                                <Image url="@../../img/home.png" />
+                                                <Image url="/img/home.png" />
                                             </image>
                                         </ImageView>
                                     </graphic>
@@ -73,7 +73,7 @@
                                     <graphic>
                                         <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                                             <image>
-                                                <Image url="@../../img/logout.png" />
+                                                <Image url="/img/logout.png" />
                                             </image>
                                         </ImageView>
                                     </graphic>
@@ -85,7 +85,7 @@
                                     <graphic>
                                         <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                                             <image>
-                                                <Image url="@../../img/set.png" />
+                                                <Image url="/img/set.png" />
                                             </image>
                                         </ImageView>
                                     </graphic>
@@ -142,27 +142,27 @@
             <children>
                 <ImageView fitHeight="125.0" fitWidth="154.0" pickOnBounds="true" preserveRatio="true">
                     <image>
-                        <Image url="@../../img/oni.png" />
+                        <Image url="/img/oni.png" />
                     </image>
                 </ImageView>
                 <ImageView fitHeight="140.0" fitWidth="231.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1">
                     <image>
-                        <Image url="@../../img/pepe.png" />
+                        <Image url="/img/pepe.png" />
                     </image>
                 </ImageView>
                 <ImageView fitHeight="211.0" fitWidth="206.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2">
                     <image>
-                        <Image url="@../../img/mush.png" />
+                        <Image url="/img/mush.png" />
                     </image>
                 </ImageView>
                 <ImageView fitHeight="144.0" fitWidth="225.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="2">
                     <image>
-                        <Image url="@../../img/bacon.png" />
+                        <Image url="/img/bacon.png" />
                     </image>
                 </ImageView>
                 <ImageView fitHeight="153.0" fitWidth="225.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="2">
                     <image>
-                        <Image url="@../../img/ol.png" />
+                        <Image url="/img/ol.png" />
                     </image>
                 </ImageView>
                 <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="5.0" GridPane.rowIndex="1">
@@ -240,7 +240,7 @@
                 </VBox>
                 <ImageView fitHeight="150.0" fitWidth="203.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="2">
                     <image>
-                        <Image url="@../../img/pine.png" />
+                        <Image url="/img/pine.png" />
                     </image>
                 </ImageView>
                 <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="5.0" GridPane.columnIndex="2" GridPane.rowIndex="3">
@@ -259,17 +259,17 @@
                 </VBox>
                 <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="4">
                     <image>
-                        <Image url="@../../img/shu.png" />
+                        <Image url="/img/shu.png" />
                     </image>
                 </ImageView>
                 <ImageView fitHeight="158.0" fitWidth="203.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="4">
                     <image>
-                        <Image url="@../../img/pim.png" />
+                        <Image url="/img/pim.png" />
                     </image>
                 </ImageView>
                 <ImageView fitHeight="140.0" fitWidth="193.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="4">
                     <image>
-                        <Image url="@../../img/pota.png" />
+                        <Image url="/img/pota.png" />
                     </image>
                 </ImageView>
                 <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="5.0" GridPane.rowIndex="5">

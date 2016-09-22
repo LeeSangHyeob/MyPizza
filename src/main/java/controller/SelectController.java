@@ -1,7 +1,7 @@
 package controller;
 
-import Project1.v3.dao.CustomerDAO;
-import Project1.v3.model.OrderlistVO;
+import dao.CustomerDAO;
+import model.OrderlistVO;
 import javafx.animation.TranslateTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;

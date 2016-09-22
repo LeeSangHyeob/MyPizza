@@ -1,8 +1,8 @@
 package controller;
 
-import Project1.v3.controller.*;
-import Project1.v3.dao.CustomerDAO;
-import Project1.v3.model.MemberVO;
+import controller.*;
+import dao.CustomerDAO;
+import model.MemberVO;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;

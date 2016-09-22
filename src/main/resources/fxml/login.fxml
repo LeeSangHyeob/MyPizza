@@ -7,7 +7,9 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane fx:id="maintable" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1200.0" style="-fx-background-color: D91E3E;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Project1.v3.controller.LoginController">
+<BorderPane fx:id="maintable" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1200.0"
+            style="-fx-background-color: D91E3E;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="controller.LoginController">
     <bottom>
         <Pane prefHeight="183.0" prefWidth="1200.0" style="-fx-background-color: D91E3E;" BorderPane.alignment="CENTER">
             <children>
@@ -66,7 +68,7 @@
                            <graphic>
                               <ImageView fitHeight="40.0" fitWidth="40.0" onDragDetected="#actTool" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../../img/set.png" />
+                                    <Image url="@/img/set.png" />
                                  </image>
                               </ImageView>
                            </graphic>
@@ -87,7 +89,7 @@
     <center>
         <ImageView fitHeight="490.0" fitWidth="471.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="TOP_CENTER">
             <image>
-                <Image url="@../../img/logo2.png" />
+                <Image url="@/img/logo2.png" />
             </image>
         </ImageView>
     </center>

@@ -1,7 +1,6 @@
-package controller;/*
-package Project1.v3.controller;
+package controller;
 
-import Project1.v3.model.OrderlistVO;
+import model.OrderlistVO;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -14,10 +13,10 @@ import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
-*/
+
 /**
  * Created by java on 2016-09-22.
- *//*
+ */
 
 public class BasicController extends MenuController implements Initializable {
 
@@ -61,4 +60,4 @@ public class BasicController extends MenuController implements Initializable {
     public void selected(ActionEvent actionEvent) {
     }
 }
-*/
+
