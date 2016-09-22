@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Project1.v3.controller.SelectController">
+    <bottom>
+        <Pane prefHeight="50.0" prefWidth="200.0" BorderPane.alignment="BOTTOM_LEFT">
+            <children>
+                <HBox alignment="CENTER" layoutX="1.0" layoutY="4.0" prefHeight="40.0" prefWidth="1200.0" spacing="700.0">
+                    <children>
+                        <Button fx:id="prev" mnemonicParsing="false" onAction="#prevPage" prefHeight="37.0" prefWidth="48.0" text="◀">
+                            <font>
+                                <Font size="20.0" />
+                            </font>
+                            <HBox.margin>
+                                <Insets left="50.0" />
+                            </HBox.margin></Button>
+                        <Button fx:id="next" mnemonicParsing="false" onAction="#nextPage" prefHeight="34.0" prefWidth="48.0" text="▶">
+                            <HBox.margin>
+                                <Insets />
+                            </HBox.margin>
+                            <font>
+                                <Font size="20.0" />
+                            </font></Button>
+                    </children>
+                </HBox>
+            </children></Pane>
+    </bottom>
+    <right>
+        <Pane prefHeight="150.0" prefWidth="100.0" BorderPane.alignment="CENTER" />
+    </right>
+    <top>
+        <HBox prefHeight="100.0" prefWidth="1200.0" BorderPane.alignment="CENTER">
+            <children>
+                <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../../img/logo2.png" />
+                    </image>
+                </ImageView>
+                <VBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="1200.0" style="-fx-background-color: D91E3E;">
+                    <children>
+                        <Label fx:id="idInfo" alignment="CENTER" prefHeight="40.0" prefWidth="100.0" textAlignment="JUSTIFY" textFill="WHITE">
+                            <font>
+                                <Font size="16.0" />
+                            </font>
+                        </Label>
+                        <ToolBar prefHeight="60.0" prefWidth="1100.0" style="-fx-background-color: D91E3E;">
+                            <opaqueInsets>
+                                <Insets left="5.0" right="5.0" />
+                            </opaqueInsets>
+                            <items>
+                                <Button fx:id="home" mnemonicParsing="false" onAction="#actTool" prefHeight="40.0" prefWidth="40.0" textAlignment="CENTER">
+                                    <graphic>
+                                        <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                                            <image>
+                                                <Image url="@../../img/home.png" />
+                                            </image>
+                                        </ImageView>
+                                    </graphic>
+                                    <opaqueInsets>
+                                        <Insets />
+                                    </opaqueInsets>
+                                </Button>
+                                <Button fx:id="logout" mnemonicParsing="false" onAction="#actTool" prefHeight="40.0" prefWidth="40.0" textAlignment="CENTER">
+                                    <graphic>
+                                        <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                                            <image>
+                                                <Image url="@../../img/logout.png" />
+                                            </image>
+                                        </ImageView>
+                                    </graphic>
+                                    <opaqueInsets>
+                                        <Insets />
+                                    </opaqueInsets>
+                                </Button>
+                                <Button fx:id="about" mnemonicParsing="false" onAction="#actTool" prefHeight="40.0" prefWidth="40.0" textAlignment="CENTER">
+                                    <graphic>
+                                        <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                                            <image>
+                                                <Image url="@../../img/set.png" />
+                                            </image>
+                                        </ImageView>
+                                    </graphic>
+                                    <opaqueInsets>
+                                        <Insets />
+                                    </opaqueInsets>
+                                </Button>
+                            </items>
+                        </ToolBar>
+                    </children>
+                </VBox>
+            </children>
+        </HBox>
+    </top>
+    <left>
+        <AnchorPane prefWidth="150.0" BorderPane.alignment="CENTER">
+            <children>
+                <Pane fx:id="infoPane" layoutX="-80.0" prefHeight="500.0" prefWidth="150.0">
+                    <children>
+                        <VBox fx:id="menuf" alignment="CENTER" layoutX="-25.0" layoutY="25.0" prefHeight="500.0" prefWidth="120.0" style="-fx-background-color: D91E3E;">
+                            <children>
+                                <TextArea fx:id="txt" editable="false" prefHeight="380.0" prefWidth="120.0">
+                                    <opaqueInsets>
+                                        <Insets />
+                                    </opaqueInsets>
+                                    <VBox.margin>
+                                        <Insets left="2.0" right="15.0" />
+                                    </VBox.margin></TextArea>
+                            </children></VBox>
+                        <Button fx:id="infoBtn" layoutX="85.0" layoutY="250.0" mnemonicParsing="false" onAction="#onInfo" prefHeight="23.0" prefWidth="1.0" text="∥" />
+                    </children>
+                </Pane>
+            </children>
+            <BorderPane.margin>
+                <Insets />
+            </BorderPane.margin>
+        </AnchorPane>
+    </left>
+    <center>
+        <GridPane BorderPane.alignment="CENTER">
+            <columnConstraints>
+                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints maxHeight="490.0" minHeight="10.0" prefHeight="225.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="490.0" minHeight="10.0" prefHeight="50.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="372.0" minHeight="10.0" prefHeight="225.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="323.0" minHeight="10.0" prefHeight="50.0" vgrow="SOMETIMES" />
+            </rowConstraints>
+            <children>
+                <ImageView fitHeight="227.0" fitWidth="278.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../../img/original.png" />
+                    </image>
+                </ImageView>
+                <ImageView fitHeight="242.0" fitWidth="277.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1">
+                    <image>
+                        <Image url="@../../img/ssen.png" />
+                    </image>
+                </ImageView>
+                <ImageView fitHeight="226.0" fitWidth="269.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2">
+                    <image>
+                        <Image url="@../../img/doublec.png" />
+                    </image>
+                </ImageView>
+                <ImageView fitHeight="242.0" fitWidth="277.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="2">
+                    <image>
+                        <Image url="@../../img/hiden.png" />
+                    </image>
+                </ImageView>
+                <ImageView fitHeight="228.0" fitWidth="278.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                    <image>
+                        <Image url="@../../img/napol.png" />
+                    </image>
+                </ImageView>
+                <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="5.0" GridPane.rowIndex="1">
+                    <children>
+                        <RadioButton fx:id="ori" mnemonicParsing="false" onAction="#selected" text="오리지널 M" userData="오리지널 M">
+                            <font>
+                                <Font size="14.0" />
+                            </font>
+                            <toggleGroup>
+                                <ToggleGroup fx:id="group" />
+                            </toggleGroup>
+                        </RadioButton>
+                        <RadioButton mnemonicParsing="false" onAction="#selected" text="오리지널 L" toggleGroup="$group" userData="오리지널 L">
+                            <font>
+                                <Font size="14.0" />
+                            </font>
+                        </RadioButton>
+                    </children>
+                </VBox>
+                <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="5.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                    <children>
+                        <RadioButton mnemonicParsing="false" onAction="#selected" text="씬 M" toggleGroup="$group" userData="씬 M">
+                            <font>
+                                <Font size="14.0" />
+                            </font>
+                        </RadioButton>
+                        <RadioButton mnemonicParsing="false" onAction="#selected" text="씬 L" toggleGroup="$group" userData="씬 L">
+                            <font>
+                                <Font size="14.0" />
+                            </font></RadioButton>
+                    </children>
+                </VBox>
+                <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="5.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                    <children>
+                        <RadioButton mnemonicParsing="false" onAction="#selected" text="더블치즈 M" toggleGroup="$group" userData="더블치즈 M">
+                            <font>
+                                <Font size="14.0" />
+                            </font>
+                        </RadioButton>
+                        <RadioButton mnemonicParsing="false" onAction="#selected" text="더블치즈 L" toggleGroup="$group" userData="더블치즈 L">
+                            <font>
+                                <Font size="14.0" />
+                            </font>
+                        </RadioButton>
+                    </children>
+                </VBox>
+                <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="5.0" GridPane.rowIndex="3">
+                    <children>
+                        <RadioButton mnemonicParsing="false" onAction="#selected" text="히든엣지 M" toggleGroup="$group" userData="히든엣지 M">
+                            <font>
+                                <Font size="14.0" />
+                            </font>
+                        </RadioButton>
+                        <RadioButton mnemonicParsing="false" onAction="#selected" text="히든엣지 L" toggleGroup="$group" userData="히든엣지 L">
+                            <font>
+                                <Font size="14.0" />
+                            </font>
+                        </RadioButton>
+                    </children>
+                </VBox>
+                <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="5.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                    <children>
+                        <RadioButton mnemonicParsing="false" onAction="#selected" text="나폴리 M" toggleGroup="$group" userData="나폴리 M">
+                            <font>
+                                <Font size="14.0" />
+                            </font>
+                        </RadioButton>
+                        <RadioButton mnemonicParsing="false" onAction="#selected" text="나폴리 L" toggleGroup="$group" userData="나폴리 L">
+                            <font>
+                                <Font size="14.0" />
+                            </font>
+                        </RadioButton>
+                    </children>
+                </VBox>
+            </children>
+        </GridPane>
+    </center>
+</BorderPane>

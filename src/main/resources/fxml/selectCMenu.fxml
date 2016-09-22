@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane fx:id="top" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Project1.v3.controller.MenuController">
+    <bottom>
+        <Pane prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: D91E3E;" BorderPane.alignment="CENTER" />
+    </bottom>
+    <right>
+        <Pane prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: D91E3E;" BorderPane.alignment="CENTER" />
+    </right>
+    <top>
+        <HBox prefHeight="100.0" prefWidth="1200.0" style="-fx-background-color: D91E3E;" BorderPane.alignment="CENTER">
+            <children>
+                <ImageView fx:id="logo" fitHeight="172.0" fitWidth="95.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../../img/logo2.png" />
+                    </image>
+                </ImageView>
+                <VBox alignment="CENTER_RIGHT" prefHeight="55.0" prefWidth="1105.0">
+                    <children>
+                        <Label fx:id="idInfo" alignment="CENTER" prefHeight="40.0" prefWidth="100.0" textAlignment="JUSTIFY">
+                            <font>
+                                <Font size="16.0" />
+                            </font>
+                        </Label>
+                        <ToolBar prefHeight="32.0" prefWidth="1105.0" style="-fx-background-color: D91E3E;">
+                            <opaqueInsets>
+                                <Insets left="5.0" right="5.0" />
+                            </opaqueInsets>
+                     <items>
+                        <Button fx:id="home" mnemonicParsing="false" onAction="#actTool" prefHeight="40.0" prefWidth="40.0" textAlignment="CENTER">
+                           <graphic>
+                              <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../img/home.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                        </Button>
+                        <Button fx:id="logout" mnemonicParsing="false" onAction="#actTool" prefHeight="40.0" prefWidth="40.0" textAlignment="CENTER">
+                           <graphic>
+                              <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../img/logout.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                        </Button>
+                        <Button fx:id="about" mnemonicParsing="false" onAction="#actTool" prefHeight="40.0" prefWidth="40.0" textAlignment="CENTER">
+                           <graphic>
+                              <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../img/set.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                        </Button>
+                     </items>
+                        </ToolBar>
+                    </children>
+                </VBox>
+            </children>
+        </HBox>
+    </top>
+    <center>
+        <HBox alignment="CENTER" spacing="100.0" style="-fx-background-color: D91E3E;">
+            <children>
+                <Button fx:id="basic" mnemonicParsing="false" onAction="#showMenu" prefHeight="270.0" prefWidth="200.0" text="베이직" textAlignment="CENTER" textFill="#d91e3e">
+                    <opaqueInsets>
+                        <Insets />
+                    </opaqueInsets>
+                    <font>
+                        <Font size="32.0" />
+                    </font>
+                </Button>
+                <Button fx:id="custom" mnemonicParsing="false" onAction="#showMenu" prefHeight="270.0" prefWidth="200.0" text="커스텀" textAlignment="CENTER" textFill="#d91e3e">
+                    <opaqueInsets>
+                        <Insets />
+                    </opaqueInsets>
+                    <font>
+                        <Font size="32.0" />
+                    </font>
+                </Button>
+                <Button fx:id="list" mnemonicParsing="false" onAction="#showMenu" prefHeight="270.0" prefWidth="200.0" text="주문 내역" textAlignment="CENTER" textFill="#d91e3e">
+                    <opaqueInsets>
+                        <Insets />
+                    </opaqueInsets>
+                    <font>
+                        <Font size="32.0" />
+                    </font>
+                </Button>
+            </children>
+            <BorderPane.margin>
+                <Insets />
+            </BorderPane.margin>
+        </HBox>
+    </center>
+    <left>
+        <Pane prefHeight="550.0" prefWidth="100.0" style="-fx-background-color: D91E3E;" BorderPane.alignment="CENTER" />
+    </left>
+</BorderPane>

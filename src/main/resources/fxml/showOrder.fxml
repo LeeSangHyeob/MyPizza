@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Project1.v3.controller.MenuController">
+    <bottom>
+        <Pane prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: D91E3E;" BorderPane.alignment="CENTER">
+            <children>
+                <Button layoutX="573.0" layoutY="14.0" mnemonicParsing="false" text="확인" />
+            </children></Pane>
+    </bottom>
+    <right>
+        <Pane prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: D91E3E;" BorderPane.alignment="CENTER" />
+    </right>
+    <top>
+        <HBox prefHeight="100.0" prefWidth="1200.0" BorderPane.alignment="CENTER">
+            <children>
+                <ImageView fitHeight="152.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../../img/logo2.png" />
+                    </image>
+                </ImageView>
+                <VBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="1200.0" style="-fx-background-color: D91E3E;">
+                    <children>
+                        <Label fx:id="idInfo" alignment="CENTER" prefHeight="40.0" prefWidth="100.0" text="label" textAlignment="JUSTIFY" textFill="WHITE">
+                            <font>
+                                <Font size="16.0" />
+                            </font>
+                        </Label>
+                        <ToolBar prefHeight="60.0" prefWidth="1100.0" style="-fx-background-color: D91E3E;">
+                            <items>
+                                <Button fx:id="home" mnemonicParsing="false" onAction="#actTool" prefHeight="40.0" prefWidth="40.0" textAlignment="CENTER">
+                                    <opaqueInsets>
+                                        <Insets />
+                                    </opaqueInsets>
+                                    <graphic>
+                                        <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                                            <image>
+                                                <Image url="@../../img/home.png" />
+                                            </image>
+                                        </ImageView>
+                                    </graphic>
+                                </Button>
+                                <Button fx:id="logout" mnemonicParsing="false" onAction="#actTool" prefHeight="40.0" prefWidth="40.0" textAlignment="CENTER">
+                                    <opaqueInsets>
+                                        <Insets />
+                                    </opaqueInsets>
+                                    <graphic>
+                                        <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                                            <image>
+                                                <Image url="@../../img/logout.png" />
+                                            </image>
+                                        </ImageView>
+                                    </graphic>
+                                </Button>
+                                <Button fx:id="about" mnemonicParsing="false" onAction="#actTool" prefHeight="40.0" prefWidth="40.0" textAlignment="CENTER">
+                                    <opaqueInsets>
+                                        <Insets />
+                                    </opaqueInsets>
+                                    <graphic>
+                                        <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                                            <image>
+                                                <Image url="@../../img/set.png" />
+                                            </image>
+                                        </ImageView>
+                                    </graphic>
+                                </Button>
+                            </items>
+                            <opaqueInsets>
+                                <Insets left="5.0" right="5.0" />
+                            </opaqueInsets>
+                            <VBox.margin>
+                                <Insets />
+                            </VBox.margin>
+                        </ToolBar>
+                    </children>
+                </VBox>
+            </children>
+        </HBox>
+    </top>
+    <left>
+        <Pane prefHeight="550.0" prefWidth="100.0" style="-fx-background-color: D91E3E;" BorderPane.alignment="CENTER" />
+    </left>
+    <center>
+        <TableView prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+            <columns>
+                <TableColumn prefWidth="81.0" text="아이디" />
+                <TableColumn text="이름" />
+                <TableColumn prefWidth="114.0" text="피자" />
+                <TableColumn prefWidth="68.0" text="소스" />
+                <TableColumn prefWidth="72.0" text="토핑1" />
+                <TableColumn prefWidth="78.0" text="토핑2" />
+                <TableColumn prefWidth="81.0" text="토핑3" />
+                <TableColumn prefWidth="84.0" text="토핑4" />
+                <TableColumn prefWidth="93.0" text="사이드1" />
+                <TableColumn prefWidth="85.0" text="사이드2" />
+                <TableColumn prefWidth="85.0" text="사이드3" />
+                <TableColumn prefWidth="78.0" text="가격" />
+            </columns>
+        </TableView>
+    </center>
+</BorderPane>

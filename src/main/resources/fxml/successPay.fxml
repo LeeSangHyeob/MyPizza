@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.media.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Project1.v3.controller.PaymentController">
+    <bottom>
+        <Pane prefHeight="50.0" prefWidth="200.0" BorderPane.alignment="BOTTOM_LEFT">
+            <children>
+                <HBox alignment="CENTER" layoutX="1.0" layoutY="4.0" prefHeight="40.0" prefWidth="1200.0" spacing="700.0" />
+            </children></Pane>
+    </bottom>
+    <right>
+        <Pane prefHeight="150.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+            <children>
+                <ScrollBar layoutX="72.0" layoutY="6.0" orientation="VERTICAL" prefHeight="595.0" prefWidth="14.0" />
+            </children></Pane>
+    </right>
+    <top>
+        <HBox prefHeight="100.0" prefWidth="1200.0" style="-fx-background-color: D91E3E;" BorderPane.alignment="CENTER">
+            <children>
+                <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../../img/logo2.png" />
+                    </image>
+                </ImageView>
+                <VBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="1200.0">
+                    <children>
+                        <Label fx:id="idInfo" alignment="CENTER" prefHeight="40.0" prefWidth="100.0" textAlignment="JUSTIFY" textFill="WHITE">
+                            <font>
+                                <Font size="16.0" />
+                            </font>
+                        </Label>
+                        <ToolBar prefHeight="60.0" prefWidth="1100.0" style="-fx-background-color: D91E3E;">
+                            <opaqueInsets>
+                                <Insets left="5.0" right="5.0" />
+                            </opaqueInsets>
+                            <items>
+                                <Button fx:id="home" mnemonicParsing="false" onAction="#actTool" prefHeight="40.0" prefWidth="40.0" textAlignment="CENTER">
+                                    <graphic>
+                                        <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                                            <image>
+                                                <Image url="@../../img/home.png" />
+                                            </image>
+                                        </ImageView>
+                                    </graphic>
+                                    <opaqueInsets>
+                                        <Insets />
+                                    </opaqueInsets>
+                                </Button>
+                                <Button fx:id="logout" mnemonicParsing="false" onAction="#actTool" prefHeight="40.0" prefWidth="40.0" textAlignment="CENTER">
+                                    <graphic>
+                                        <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                                            <image>
+                                                <Image url="@../../img/logout.png" />
+                                            </image>
+                                        </ImageView>
+                                    </graphic>
+                                    <opaqueInsets>
+                                        <Insets />
+                                    </opaqueInsets>
+                                </Button>
+                                <Button fx:id="about" mnemonicParsing="false" onAction="#actTool" prefHeight="40.0" prefWidth="40.0" textAlignment="CENTER">
+                                    <graphic>
+                                        <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                                            <image>
+                                                <Image url="@../../img/set.png" />
+                                            </image>
+                                        </ImageView>
+                                    </graphic>
+                                    <opaqueInsets>
+                                        <Insets />
+                                    </opaqueInsets>
+                                </Button>
+                            </items>
+                        </ToolBar>
+                    </children>
+                </VBox>
+            </children>
+        </HBox>
+    </top>
+    <left>
+        <AnchorPane prefWidth="150.0" BorderPane.alignment="CENTER">
+            <children>
+                <Pane fx:id="infoPane" layoutX="-80.0" prefHeight="500.0" prefWidth="150.0" />
+            </children>
+            <BorderPane.margin>
+                <Insets />
+            </BorderPane.margin>
+        </AnchorPane>
+    </left>
+   <center>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label layoutX="81.0" layoutY="48.0" text="결제가 완료 되었습니다." textFill="RED">
+               <font>
+                  <Font size="72.0" />
+               </font>
+            </Label>
+            <Label fx:id="wait" layoutX="247.0" layoutY="431.0" text="예상 대기시간  ">
+               <font>
+                  <Font size="48.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>
