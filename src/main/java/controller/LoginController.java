@@ -51,10 +51,10 @@ public class LoginController extends MainController {
             showWarn("로그인 실패!!");
         } else {
             if (userid.equals("admin")) {
-                loader = new FXMLLoader(getClass().getResource("fxml/selectAMenu.fxml"));
+                loader = new FXMLLoader(getClass().getResource("/fxml/selectAMenu.fxml"));
             } else {
                 showSuccess("로그인 성공!!");
-                loader = new FXMLLoader(getClass().getResource("fxml/selectCMenu.fxml"));
+                loader = new FXMLLoader(getClass().getResource("/fxml/selectCMenu.fxml"));
             }
 
             Parent root = null;
@@ -73,7 +73,7 @@ public class LoginController extends MainController {
 
     public void join(ActionEvent ae) {
 
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/join.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/join.fxml"));
         Parent root = null;
         try {
             root = loader.load();
@@ -97,10 +97,10 @@ public class LoginController extends MainController {
         } else {
             i = 0;
             if (e.getTarget() == home) {
-                loader = new FXMLLoader(getClass().getResource("fxml/selectCMenu.fxml"));
+                loader = new FXMLLoader(getClass().getResource("/fxml/selectCMenu.fxml"));
                 stage = (Stage) home.getScene().getWindow();
             } else if (e.getTarget() == logout) {
-                loader = new FXMLLoader(getClass().getResource("fxml/login.fxml"));
+                loader = new FXMLLoader(getClass().getResource("/fxml/login.fxml"));
                 stage = (Stage) about.getScene().getWindow();
             }
             try {

@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.PaymentController">
+    <top>
+        <HBox prefHeight="100.0" prefWidth="1200.0" BorderPane.alignment="CENTER">
+            <children>
+                <ImageView fitHeight="152.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="/img/logo2.png" />
+                    </image>
+                </ImageView>
+                <VBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="1200.0" style="-fx-background-color: D91E3E;">
+                    <children>
+                        <Label fx:id="idInfo" alignment="CENTER" prefHeight="40.0" prefWidth="100.0" textAlignment="JUSTIFY" textFill="WHITE">
+                            <font>
+                                <Font size="16.0" />
+                            </font>
+                        </Label>
+                        <ToolBar prefHeight="60.0" prefWidth="1100.0" style="-fx-background-color: D91E3E;">
+                            <opaqueInsets>
+                                <Insets left="5.0" right="5.0" />
+                            </opaqueInsets>
+                            <items>
+                                <Button fx:id="logout" mnemonicParsing="false" onAction="#actTool" prefHeight="40.0" prefWidth="40.0" textAlignment="CENTER">
+                                    <graphic>
+                                        <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                                            <image>
+                                                <Image url="/img/logout.png" />
+                                            </image>
+                                        </ImageView>
+                                    </graphic>
+                                    <opaqueInsets>
+                                        <Insets />
+                                    </opaqueInsets>
+                                </Button>
+                                <Button fx:id="about" mnemonicParsing="false" onAction="#actTool" prefHeight="40.0" prefWidth="40.0" textAlignment="CENTER">
+                                    <graphic>
+                                        <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                                            <image>
+                                                <Image url="/img/set.png" />
+                                            </image>
+                                        </ImageView>
+                                    </graphic>
+                                    <opaqueInsets>
+                                        <Insets />
+                                    </opaqueInsets>
+                                </Button>
+                            </items>
+                        </ToolBar>
+                    </children>
+                </VBox>
+            </children>
+        </HBox>
+    </top>
+    <left>
+        <Pane prefHeight="550.0" prefWidth="100.0" BorderPane.alignment="CENTER" />
+    </left>
+    <right>
+        <Pane prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER" />
+    </right>
+    <bottom>
+        <Pane prefHeight="122.0" prefWidth="1200.0" BorderPane.alignment="CENTER">
+            <children>
+                <Button fx:id="home" layoutX="508.0" layoutY="50.0" mnemonicParsing="false" onAction="#actTool" style="-fx-background-color: D91E3E;" text="＜ 주문취소" textFill="WHITE">
+                    <font>
+                        <Font size="15.0" />
+                    </font>
+                </Button>
+                <Button layoutX="632.0" layoutY="50.0" mnemonicParsing="false" onAction="#pay" style="-fx-background-color: D91E3E;" text="주문완료 ＞" textFill="#fffdfd">
+                    <font>
+                        <Font size="15.0" />
+                    </font>
+                </Button>
+            </children></Pane>
+    </bottom>
+    <center>
+        <VBox prefHeight="550.0" prefWidth="278.0" BorderPane.alignment="CENTER">
+            <children>
+                <AnchorPane prefHeight="448.0" prefWidth="1000.0">
+                    <children>
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f7f9fc" height="408.0" layoutX="14.0" layoutY="14.0" stroke="BLACK" strokeType="INSIDE" width="984.0" />
+                        <Label layoutX="257.0" layoutY="123.0" text="메뉴">
+                            <font>
+                                <Font size="24.0" />
+                            </font>
+                        </Label>
+                        <Label alignment="TOP_LEFT" layoutX="257.0" layoutY="192.0" prefHeight="150.0" text="사이드">
+                            <font>
+                                <Font size="24.0" />
+                            </font>
+                        </Label>
+                        <Label layoutX="94.0" layoutY="27.0" text="주문하신 메뉴  *" textFill="#d91e3e">
+                            <font>
+                                <Font size="18.0" />
+                            </font>
+                        </Label>
+                        <Label fx:id="pizzaInfo" layoutX="347.0" layoutY="125.0" prefWidth="300.0">
+                            <font>
+                                <Font size="20.0" />
+                            </font>
+                        </Label>
+                        <Label fx:id="sideInfo" alignment="TOP_LEFT" layoutX="347.0" layoutY="190.0" prefHeight="154.0" prefWidth="300.0">
+                            <font>
+                                <Font size="20.0" />
+                            </font>
+                        </Label>
+                    </children>
+                </AnchorPane>
+                <HBox alignment="TOP_RIGHT" prefHeight="24.0" prefWidth="1000.0" spacing="10.0">
+                    <children>
+                        <Label text="결제예정금액" textFill="RED">
+                            <font>
+                                <Font size="20.0" />
+                            </font>
+                            <HBox.margin>
+                                <Insets right="10.0" />
+                            </HBox.margin>
+                        </Label>
+                        <Label fx:id="bprice">
+                            <font>
+                                <Font size="20.0" />
+                            </font>
+                        </Label>
+                        <Label text="원">
+                            <font>
+                                <Font size="20.0" />
+                            </font>
+                            <HBox.margin>
+                                <Insets />
+                            </HBox.margin>
+                        </Label>
+                    </children>
+                    <VBox.margin>
+                        <Insets top="5.0" />
+                    </VBox.margin>
+                </HBox>
+                <Separator maxWidth="400.0" prefHeight="0.0" prefWidth="599.0" style="-fx-background-color: D91E3E;">
+                    <VBox.margin>
+                        <Insets left="750.0" />
+                    </VBox.margin></Separator>
+                <Separator prefWidth="200.0">
+                    <VBox.margin>
+                        <Insets top="10.0" />
+                    </VBox.margin>
+                </Separator>
+            </children>
+        </VBox>
+    </center>
+
+</BorderPane>

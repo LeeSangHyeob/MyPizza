@@ -1,35 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.media.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.shape.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.PaymentController">
-    <bottom>
-        <Pane prefHeight="50.0" prefWidth="200.0" BorderPane.alignment="BOTTOM_LEFT">
-            <children>
-                <HBox alignment="CENTER" layoutX="1.0" layoutY="4.0" prefHeight="40.0" prefWidth="1200.0" spacing="700.0" />
-            </children></Pane>
-    </bottom>
-    <right>
-        <Pane prefHeight="150.0" prefWidth="100.0" BorderPane.alignment="CENTER">
-            <children>
-                <ScrollBar layoutX="72.0" layoutY="6.0" orientation="VERTICAL" prefHeight="595.0" prefWidth="14.0" />
-            </children></Pane>
-    </right>
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1200.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.PaymentController">
     <top>
-        <HBox prefHeight="100.0" prefWidth="1200.0" style="-fx-background-color: D91E3E;" BorderPane.alignment="CENTER">
+        <HBox prefHeight="100.0" prefWidth="1200.0" BorderPane.alignment="CENTER">
             <children>
-                <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                <ImageView fitHeight="152.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
                     <image>
                         <Image url="/img/logo2.png" />
                     </image>
                 </ImageView>
-                <VBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="1200.0">
+                <VBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="1200.0" style="-fx-background-color: D91E3E;">
                     <children>
                         <Label fx:id="idInfo" alignment="CENTER" prefHeight="40.0" prefWidth="100.0" textAlignment="JUSTIFY" textFill="WHITE">
                             <font>
@@ -41,18 +31,6 @@
                                 <Insets left="5.0" right="5.0" />
                             </opaqueInsets>
                             <items>
-                                <Button fx:id="home" mnemonicParsing="false" onAction="#actTool" prefHeight="40.0" prefWidth="40.0" textAlignment="CENTER">
-                                    <graphic>
-                                        <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
-                                            <image>
-                                                <Image url="/img/home.png" />
-                                            </image>
-                                        </ImageView>
-                                    </graphic>
-                                    <opaqueInsets>
-                                        <Insets />
-                                    </opaqueInsets>
-                                </Button>
                                 <Button fx:id="logout" mnemonicParsing="false" onAction="#actTool" prefHeight="40.0" prefWidth="40.0" textAlignment="CENTER">
                                     <graphic>
                                         <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
@@ -77,6 +55,17 @@
                                         <Insets />
                                     </opaqueInsets>
                                 </Button>
+                        <Label prefHeight="21.0" prefWidth="428.0" text="          " />
+                        <ImageView fitHeight="67.0" fitWidth="451.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="/img/banner.gif" />
+                           </image>
+                        </ImageView>
+                                <Label prefHeight="43.0" prefWidth="481.0" text="                                       ">
+                                    <font>
+                                        <Font size="9.0" />
+                                    </font>
+                                </Label>
                             </items>
                         </ToolBar>
                     </children>
@@ -85,29 +74,95 @@
         </HBox>
     </top>
     <left>
-        <AnchorPane prefWidth="150.0" BorderPane.alignment="CENTER">
-            <children>
-                <Pane fx:id="infoPane" layoutX="-80.0" prefHeight="500.0" prefWidth="150.0" />
-            </children>
-            <BorderPane.margin>
-                <Insets />
-            </BorderPane.margin>
-        </AnchorPane>
+        <Pane prefHeight="550.0" prefWidth="100.0" BorderPane.alignment="CENTER" />
     </left>
-   <center>
-      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-         <children>
-            <Label layoutX="81.0" layoutY="48.0" text="결제가 완료 되었습니다." textFill="RED">
-               <font>
-                  <Font size="72.0" />
-               </font>
-            </Label>
-            <Label fx:id="wait" layoutX="247.0" layoutY="431.0" text="예상 대기시간  ">
-               <font>
-                  <Font size="48.0" />
-               </font>
-            </Label>
-         </children>
-      </AnchorPane>
-   </center>
+    <right>
+        <Pane prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER" />
+    </right>
+    <bottom>
+        <Pane prefHeight="122.0" prefWidth="1200.0" BorderPane.alignment="CENTER">
+            <children>
+                <Button fx:id="home" layoutX="534.0" layoutY="47.0" mnemonicParsing="false" onAction="#actTool" style="-fx-background-color: D91E3E;" text="홈" textFill="WHITE">
+                    <font>
+                        <Font size="15.0" />
+                    </font>
+                </Button>
+            </children></Pane>
+    </bottom>
+    <center>
+        <VBox prefHeight="550.0" prefWidth="278.0" BorderPane.alignment="CENTER">
+            <children>
+                <AnchorPane prefHeight="510.0" prefWidth="1000.0">
+                    <children>
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f7f9fc" height="499.0" layoutX="238.0" layoutY="24.0" stroke="BLACK" strokeType="INSIDE" width="425.0" />
+                        <Label layoutX="257.0" layoutY="48.0" text="도우">
+                            <font>
+                                <Font size="24.0" />
+                            </font>
+                        </Label>
+                        <Label layoutX="257.0" layoutY="89.0" text="소스">
+                            <font>
+                                <Font size="24.0" />
+                            </font>
+                        </Label>
+                        <Label alignment="TOP_LEFT" layoutX="257.0" layoutY="131.0" prefHeight="122.0" prefWidth="48.0" text="토핑">
+                            <font>
+                                <Font size="24.0" />
+                            </font>
+                        </Label>
+                        <Label alignment="TOP_LEFT" layoutX="257.0" layoutY="257.0" prefHeight="150.0" text="사이드">
+                            <font>
+                                <Font size="24.0" />
+                            </font>
+                        </Label>
+                        <Label layoutX="36.0" layoutY="38.0" text="주문하신 메뉴 확인 *" textFill="#d91e3e">
+                            <font>
+                                <Font size="18.0" />
+                            </font>
+                        </Label>
+                        <Label fx:id="doughInfo" layoutX="347.0" layoutY="50.0" prefWidth="300.0">
+                            <font>
+                                <Font size="20.0" />
+                            </font>
+                        </Label>
+                        <Label fx:id="sourceInfo" layoutX="347.0" layoutY="91.0" prefWidth="300.0">
+                            <font>
+                                <Font size="20.0" />
+                            </font>
+                        </Label>
+                        <Label fx:id="toppingInfo" alignment="TOP_LEFT" layoutX="347.0" layoutY="131.0" prefHeight="122.0" prefWidth="300.0">
+                            <font>
+                                <Font size="20.0" />
+                            </font>
+                        </Label>
+                        <Label fx:id="sideInfo" alignment="TOP_LEFT" layoutX="347.0" layoutY="255.0" prefHeight="154.0" prefWidth="300.0">
+                            <font>
+                                <Font size="20.0" />
+                            </font>
+                        </Label>
+                        <Label layoutX="360.0" layoutY="472.0" prefHeight="43.0" prefWidth="181.0" text="결제 완료!">
+                            <font>
+                                <Font size="37.0" />
+                            </font>
+                        </Label>
+                        <Label layoutX="320.0" layoutY="429.0" text="결제금액 :">
+                            <font>
+                                <Font size="20.0" />
+                            </font>
+                        </Label>
+                        <Label fx:id="cprice" layoutX="459.0" layoutY="429.0">
+                            <font>
+                                <Font size="20.0" />
+                            </font>
+                        </Label>
+                        <Label layoutX="531.0" layoutY="429.0" text="원">
+                            <font>
+                                <Font size="20.0" />
+                            </font>
+                        </Label>
+                    </children>
+                </AnchorPane>
+            </children>
+        </VBox>
+    </center>
 </BorderPane>

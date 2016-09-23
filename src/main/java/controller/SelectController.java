@@ -99,7 +99,8 @@ public class SelectController extends MenuController implements Initializable {
                 } else showWarn("메뉴를 선택해주세요");
                 System.out.println(cnt);
             } else if (i == 3) {
-                loader = new FXMLLoader(getClass().getResource("/fxml/CPayment.fxml"));
+                //loader = new FXMLLoader(getClass().getResource("/fxml/CPayment.fxml"));
+                loader = new FXMLLoader(getClass().getResource("/fxml/loading1.fxml"));
                 i = 4;
             }
         } else if(s == 0) {
@@ -109,7 +110,8 @@ public class SelectController extends MenuController implements Initializable {
                     i = 3;
                 } else showWarn("메뉴를 선택해주세요.");
             } else if(i == 3){
-                loader = new FXMLLoader(getClass().getResource("/fxml/BPayment.fxml"));
+                //loader = new FXMLLoader(getClass().getResource("/fxml/BPayment.fxml"));
+                loader = new FXMLLoader(getClass().getResource("/fxml/loading2.fxml"));
                 i = 4;
             }
         }
