@@ -9,24 +9,19 @@
 <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" spacing="10.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.SalesController">
     <children>
         <Label alignment="CENTER" prefHeight="200.0" prefWidth="200.0" text="Select Month" textAlignment="CENTER" />
-        <ComboBox fx:id="cbox" onAction="#showChart" prefWidth="150.0" promptText="2016년" />
+        <ComboBox fx:id="cbox" onAction="#showList" prefWidth="150.0" promptText="2016년" />
       <AnchorPane prefHeight="250.0" prefWidth="400.0">
          <children>
-            <LineChart prefHeight="250.0" prefWidth="400.0" visible="false">
-              <xAxis>
-                <CategoryAxis side="BOTTOM" />
-              </xAxis>
-              <yAxis>
-                <NumberAxis side="LEFT" />
-              </yAxis>
-            </LineChart>
-            <TableView prefHeight="250.0" prefWidth="400.0" visible="false">
-              <columns>
-                <TableColumn prefWidth="75.0" text="날짜" />
-                <TableColumn prefWidth="75.0" text="주문번호" />
-                  <TableColumn prefWidth="75.0" text="금액" />
-              </columns>
-            </TableView>
+             <TableView fx:id="adtv" layoutX="100.0" prefHeight="250.0" prefWidth="400.0">
+                 <columns>
+                     <TableColumn fx:id="orderdate" prefWidth="75.0" text="날짜" />
+                     <TableColumn fx:id="orderno" prefWidth="75.0" text="주문목록" />
+                     <TableColumn fx:id="userid1" prefWidth="75.0" text="고객" />
+                     <TableColumn fx:id="olistno" prefWidth="75.0" text="주문번호" />
+                     <TableColumn fx:id="totalprice" prefWidth="75.0" text="금액" />
+                 </columns>
+             </TableView>
+
          </children>
       </AnchorPane>
       <Label text="합계 : ">
@@ -36,7 +31,7 @@
       </Label>
       <HBox alignment="CENTER" prefHeight="42.0" prefWidth="600.0" spacing="50.0">
          <children>
-            <Button fx:id="cbtn" mnemonicParsing="false" onAction="#close" text="닫기" />
+            <Button mnemonicParsing="false" text="닫기" />
          </children>
       </HBox>
     </children>

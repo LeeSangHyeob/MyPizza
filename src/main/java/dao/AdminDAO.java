@@ -20,9 +20,10 @@ public class AdminDAO {
     private static final String usr = "MYPIZZA";
     private static final String pwd = "MYPIZZA";
 
-    private String allSales = "select sum(totalprice) from orders group by ";
-    //private static String orders = " select orderdate, orderno, userid, olistno, totalprice from ORDERs  where TO_NUMBER(substr(ORDERDATE, 4,2)) = ? ";
+    private static String allsales = "select sum(totalprice) from orders ";
+    private static String allorders = "select * from orders ";
     private static String orders = " select orderdate, orderno, userid, olistno, totalprice from ORDERs  where TO_NUMBER(substr(ORDERDATE, 4,2)) = ? ";
+    private static String monthsales = " select sum(totalprice)  where TO_NUMBER(substr(ORDERDATE, 4,2)) = ? ";
 
     public static Connection openConn() {
 
@@ -59,24 +60,6 @@ public class AdminDAO {
         }
     }
 
-    public void AllSales() {
-
-        Connection conn = null;
-        PreparedStatement pstmt = null;
-
-        try {
-            conn = openConn();
-            pstmt = conn.prepareStatement(allSales);
-
-            pstmt.executeUpdate();
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            closeConn(conn, pstmt, null);
-        }
-    }
-
     public static List<OrdersVO> Orders(int month) {
 
         Connection conn = null;
@@ -105,5 +88,85 @@ public class AdminDAO {
             closeConn(conn, pstmt, rs);
         }
         return olist;
+    }
+
+    public static List<OrdersVO> allOrders() {
+
+        Connection conn = null;
+        PreparedStatement pstmt = null;
+        ResultSet rs = null;
+
+        List<OrdersVO> olist = new ArrayList<>();
+
+        try {
+            conn = openConn();
+            pstmt = conn.prepareStatement(allorders);
+            rs = pstmt.executeQuery();
+
+            while (rs.next()) {
+
+                OrdersVO o = new OrdersVO(rs.getString(1), rs.getInt(2),
+                        rs.getString(3), rs.getInt(4), rs.getInt(5));
+
+                olist.add(o);
+            }
+        }catch(Exception e){
+            e.printStackTrace();
+        }finally{
+            closeConn(conn, pstmt, rs);
+        }
+        return olist;
+    }
+
+    public static int allSales() {
+
+        Connection conn = null;
+        PreparedStatement pstmt = null;
+        ResultSet rs = null;
+
+        List<OrdersVO> olist = new ArrayList<>();
+
+        int result = 0;
+
+        try {
+            conn = openConn();
+            pstmt = conn.prepareStatement(allsales);
+            rs = pstmt.executeQuery();
+
+            while (rs.next()) {
+                result = rs.getInt(1);
+            }
+        }catch(Exception e){
+            e.printStackTrace();
+        }finally{
+            closeConn(conn, pstmt, rs);
+        }
+        return result;
+    }
+
+    public static int monthSales() {
+
+        Connection conn = null;
+        PreparedStatement pstmt = null;
+        ResultSet rs = null;
+
+        List<OrdersVO> olist = new ArrayList<>();
+
+        int result = 0;
+
+        try {
+            conn = openConn();
+            pstmt = conn.prepareStatement(monthsales);
+            rs = pstmt.executeQuery();
+
+            while (rs.next()) {
+                result = rs.getInt(1);
+            }
+        }catch(Exception e){
+            e.printStackTrace();
+        }finally{
+            closeConn(conn, pstmt, rs);
+        }
+        return result;
     }
 }

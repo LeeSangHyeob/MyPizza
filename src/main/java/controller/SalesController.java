@@ -61,7 +61,7 @@ public class SalesController implements Initializable {
 
         olist = FXCollections.observableArrayList();
         if(cbox.getSelectionModel().getSelectedItem() != null) {
-            List<OrdersVO> os = null;/*AdminDAO.Orders(Integer.parseInt(String.valueOf(cbox.getSelectionModel().getSelectedItem())));
+            List<OrdersVO> os = AdminDAO.allOrders();/*AdminDAO.Orders(Integer.parseInt(String.valueOf(cbox.getSelectionModel().getSelectedItem())));
             for (OrdersVO o : os) olist.add(o);*/
             adtv.setItems(olist);
 
