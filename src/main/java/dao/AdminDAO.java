@@ -15,15 +15,10 @@ import java.util.List;
  */
 public class AdminDAO {
 
-    /*private static final String drv = "oracle.jdbc.OracleDriver";
+    private static final String drv = "oracle.jdbc.OracleDriver";
     private static final String url = "jdbc:oracle:thin:@//192.168.0.35/xe";
     private static final String usr = "MYPIZZA";
-    private static final String pwd = "MYPIZZA";*/
-
-    private static final String drv = "oracle.jdbc.OracleDriver";
-    private static final String url = "jdbc:oracle:thin:@//192.168.199.128/xe";
-    private static final String usr = "alone";
-    private static final String pwd = "123456";
+    private static final String pwd = "MYPIZZA";
 
     private String allSales = "select sum(totalprice) from orders group by ";
     //private static String orders = " select orderdate, orderno, userid, olistno, totalprice from ORDERs  where TO_NUMBER(substr(ORDERDATE, 4,2)) = ? ";

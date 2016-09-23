@@ -15,15 +15,10 @@ import java.util.List;
  */
 public class CustomerDAO {
 
-    /*private static final String drv = "oracle.jdbc.OracleDriver";
+    private static final String drv = "oracle.jdbc.OracleDriver";
     private static final String url = "jdbc:oracle:thin:@//192.168.0.35/xe";
     private static final String usr = "MYPIZZA";
-    private static final String pwd = "MYPIZZA";*/
-
-    private static final String drv = "oracle.jdbc.OracleDriver";
-    private static final String url = "jdbc:oracle:thin:@//192.168.199.128/xe";
-    private static final String usr = "alone";
-    private static final String pwd = "123456";
+    private static final String pwd = "MYPIZZA";
 
     private static String istMember = "insert into member (userid, pwd, name, birth) values (?, ?, ?, ?)";
     private static String istOrderlist = "insert into orderlist values (olistno.nextval, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
