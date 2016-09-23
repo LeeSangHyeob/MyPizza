@@ -6,12 +6,18 @@ import model.MemberVO;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+
+import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
 /**
  * Created by SteveLEE on 2016-09-16.
@@ -30,39 +36,44 @@ public class LoginController extends MainController {
     public Button about;
 
     public static String userid = "";
+    public static int i = 0;
 
     public void login(ActionEvent e) {
 
         FXMLLoader loader = null;
 
-        userid = CustomerDAO.loginChecked(uid.getText(), pwd.getText());
 
         userid = uid.getText();
-        if (userid.equals("admin")) {
-            loader = new FXMLLoader(getClass().getResource("/fxml/selectAMenu.fxml"));
-        } else if (userid.equals("no")) {
+
+        userid = CustomerDAO.loginChecked(uid.getText(), pwd.getText());
+
+        if (userid.equals("no")) {
             showWarn("로그인 실패!!");
         } else {
-            showSuccess("로그인 성공!!");
-            loader = new FXMLLoader(getClass().getResource("/fxml/selectCMenu.fxml"));
-        }
+            if (userid.equals("admin")) {
+                loader = new FXMLLoader(getClass().getResource("fxml/selectAMenu.fxml"));
+            } else {
+                showSuccess("로그인 성공!!");
+                loader = new FXMLLoader(getClass().getResource("fxml/selectCMenu.fxml"));
+            }
 
-        Parent root = null;
+            Parent root = null;
 
-        try {
-            root = loader.load();
-        } catch (Exception ex) {
-            ex.printStackTrace();
+            try {
+                root = loader.load();
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+            System.out.println(userid.toString());
+            Stage stage = (Stage) uid.getScene().getWindow();
+            stage.setScene(new Scene(root));
+            stage.show();
         }
-        System.out.println(userid.toString());
-        Stage stage = (Stage) uid.getScene().getWindow();
-        stage.setScene(new Scene(root));
-        stage.show();
     }
 
     public void join(ActionEvent ae) {
 
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/join.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/join.fxml"));
         Parent root = null;
         try {
             root = loader.load();
@@ -84,11 +95,12 @@ public class LoginController extends MainController {
         if (e.getTarget() == about) {
             showPinfo();
         } else {
+            i = 0;
             if (e.getTarget() == home) {
-                loader = new FXMLLoader(getClass().getResource("/fxml/selectCMenu.fxml"));
+                loader = new FXMLLoader(getClass().getResource("fxml/selectCMenu.fxml"));
                 stage = (Stage) home.getScene().getWindow();
             } else if (e.getTarget() == logout) {
-                loader = new FXMLLoader(getClass().getResource("/fxml/login.fxml"));
+                loader = new FXMLLoader(getClass().getResource("fxml/login.fxml"));
                 stage = (Stage) about.getScene().getWindow();
             }
             try {
@@ -98,6 +110,7 @@ public class LoginController extends MainController {
             }
             stage.setScene(new Scene(root));
             stage.show();
+
         }
     }
 }

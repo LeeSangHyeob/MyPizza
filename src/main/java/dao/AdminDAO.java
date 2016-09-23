@@ -1,10 +1,14 @@
 package dao;
 
 
+import model.OrdersVO;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by SteveLEE on 2016-09-18.
@@ -22,6 +26,8 @@ public class AdminDAO {
     private static final String pwd = "123456";
 
     private String allSales = "select sum(totalprice) from orders group by ";
+    //private static String orders = " select orderdate, orderno, userid, olistno, totalprice from ORDERs  where TO_NUMBER(substr(ORDERDATE, 4,2)) = ? ";
+    private static String orders = " select orderdate, orderno, userid, olistno, totalprice from ORDERs  where TO_NUMBER(substr(ORDERDATE, 4,2)) = ? ";
 
     public static Connection openConn() {
 
@@ -76,4 +82,33 @@ public class AdminDAO {
         }
     }
 
+    public static List<OrdersVO> Orders(int month) {
+
+        Connection conn = null;
+        PreparedStatement pstmt = null;
+        ResultSet rs = null;
+
+        List<OrdersVO> olist = new ArrayList<>();
+
+        try {
+            conn = openConn();
+            pstmt = conn.prepareStatement(orders);
+            pstmt.setInt(1, month);
+
+            rs = pstmt.executeQuery();
+
+            while (rs.next()) {
+
+                OrdersVO o = new OrdersVO(rs.getString(1), rs.getInt(2),
+                        rs.getString(3), rs.getInt(4), rs.getInt(5));
+
+                olist.add(o);
+            }
+        }catch(Exception e){
+            e.printStackTrace();
+        }finally{
+            closeConn(conn, pstmt, rs);
+        }
+        return olist;
+    }
 }

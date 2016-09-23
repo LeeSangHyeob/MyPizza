@@ -21,7 +21,7 @@ import java.util.ResourceBundle;
 /**
  * Created by java on 2016-09-19.
  */
-public class SelectController extends LoginController implements Initializable {
+public class SelectController extends MenuController implements Initializable {
 
     @FXML
     private Pane infoPane;
@@ -43,14 +43,14 @@ public class SelectController extends LoginController implements Initializable {
     public static String sidename1 = "";
     public static String sidename2 = "";
     public static String sidename3 = "";
+    public static String pname = "";
 
     OrderlistVO o = new OrderlistVO();
 
 
-
     // select 페이지들에 변수 설정
     // i = 0 이면 dough, i = 1 이면 source, i = 2 이면 topping i = 3 이면 sidemenu
-    public static int i = 0;
+    //public static int i = 0;
 
     // 페이지 이동 방식에 따른 변수
     // p = 0이면 next, 1이면 prev 버튼이 눌렸고, textArea 에 들어갈 변수들이 달라짐
@@ -72,34 +72,46 @@ public class SelectController extends LoginController implements Initializable {
 
         stage = (Stage) next.getScene().getWindow();
 
-        if (i == 0) {
-            if (cnt != 0) {
-                loader = new FXMLLoader(getClass().getResource("/fxml/selectSource.fxml"));
-                i = 1;
-            } else showWarn("메뉴를 선택해주세요.");
-            System.out.println(cnt);
-        } else if (i == 1) {
-            if (cnt != 0) {
-                loader = new FXMLLoader(getClass().getResource("/fxml/selectTopping.fxml"));
-                i = 2;
-            } else showWarn("메뉴를 선택해주세요.");
-            tname1 = "";
-            tname2 = "";
-            tname3 = "";
-            tname4 = "";
-            sidename1 = "";
-            sidename2 = "";
-            sidename3 = "";
-            System.out.println(cnt);
-        } else if (i == 2) {
-            if (cnt != 0) {
-                loader = new FXMLLoader(getClass().getResource("/fxml/selectSideMenu.fxml"));
-                i = 3;
-            } else showWarn("메뉴를 선택해주세요");
-            System.out.println(cnt);
-        } else if (i == 3) {
-            loader = new FXMLLoader(getClass().getResource("/fxml/payment.fxml"));
-            i = 0;
+        if (s == 1) {
+            if (i == 0) {
+                if (cnt != 0) {
+                    loader = new FXMLLoader(getClass().getResource("/fxml/selectSource.fxml"));
+                    i = 1;
+                } else showWarn("메뉴를 선택해주세요.");
+                System.out.println(cnt);
+            } else if (i == 1) {
+                if (cnt != 0) {
+                    loader = new FXMLLoader(getClass().getResource("/fxml/selectTopping.fxml"));
+                    i = 2;
+                } else showWarn("메뉴를 선택해주세요.");
+                tname1 = "";
+                tname2 = "";
+                tname3 = "";
+                tname4 = "";
+                sidename1 = "";
+                sidename2 = "";
+                sidename3 = "";
+                System.out.println(cnt);
+            } else if (i == 2) {
+                if (cnt != 0) {
+                    loader = new FXMLLoader(getClass().getResource("/fxml/selectSideMenu.fxml"));
+                    i = 3;
+                } else showWarn("메뉴를 선택해주세요");
+                System.out.println(cnt);
+            } else if (i == 3) {
+                loader = new FXMLLoader(getClass().getResource("/fxml/CPayment.fxml"));
+                i = 4;
+            }
+        } else if(s == 0) {
+            if (i == 0) {
+                if (cnt != 0) {
+                    loader = new FXMLLoader(getClass().getResource("/fxml/selectSideMenu.fxml"));
+                    i = 3;
+                } else showWarn("메뉴를 선택해주세요.");
+            } else if(i == 3){
+                loader = new FXMLLoader(getClass().getResource("/fxml/BPayment.fxml"));
+                i = 4;
+            }
         }
 
         try {
@@ -111,6 +123,9 @@ public class SelectController extends LoginController implements Initializable {
         stage.setScene(new Scene(root));
         stage.setResizable(false);
         stage.show();
+
+        System.out.println("s" + s);
+        System.out.println("i" + i);
 
         cnt = 0;
     }
@@ -122,30 +137,47 @@ public class SelectController extends LoginController implements Initializable {
 
         stage = (Stage) next.getScene().getWindow();
 
-        if (i == 3) {
-            tname1 = "";
-            tname2 = "";
-            tname3 = "";
-            tname4 = "";
-            sidename1 = "";
-            sidename2 = "";
-            sidename3 = "";
-            loader = new FXMLLoader(getClass().getResource("/fxml/selectTopping.fxml"));
-            i = 2;
-        } else if (i == 2) {
-            tname1 = "";
-            tname2 = "";
-            tname3 = "";
-            tname4 = "";
-            sname = "";
-            loader = new FXMLLoader(getClass().getResource("/fxml/selectSource.fxml"));
-            i = 1;
-        } else if (i == 1) {
-            dname = "";
-            loader = new FXMLLoader(getClass().getResource("/fxml/selectDough.fxml"));
-            i = 0;
-        } else if (i == 0) {
-            loader = new FXMLLoader(getClass().getResource("/fxml/selectCMenu.fxml"));
+        if (s == 1) {
+            if (i == 3) {
+                tname1 = "";
+                tname2 = "";
+                tname3 = "";
+                tname4 = "";
+                sidename1 = "";
+                sidename2 = "";
+                sidename3 = "";
+                loader = new FXMLLoader(getClass().getResource("/fxml/selectTopping.fxml"));
+                i = 2;
+            } else if (i == 2) {
+                tname1 = "";
+                tname2 = "";
+                tname3 = "";
+                tname4 = "";
+                sname = "";
+                loader = new FXMLLoader(getClass().getResource("/fxml/selectSource.fxml"));
+                i = 1;
+            } else if (i == 1) {
+                dname = "";
+                loader = new FXMLLoader(getClass().getResource("/fxml/selectDough.fxml"));
+                i = 0;
+            } else if (i == 0) {
+                loader = new FXMLLoader(getClass().getResource("/fxml/selectCMenu.fxml"));
+            }
+        } else {
+            if (i == 3) {
+                tname1 = "";
+                tname2 = "";
+                tname3 = "";
+                tname4 = "";
+                sidename1 = "";
+                sidename2 = "";
+                sidename3 = "";
+                loader = new FXMLLoader(getClass().getResource("/fxml/selectBasic.fxml"));
+                i = 0;
+            } else {
+                pname = "";
+                loader = new FXMLLoader(getClass().getResource("/fxml/selectCMenu.fxml"));
+            }
         }
 
         try {
@@ -157,58 +189,85 @@ public class SelectController extends LoginController implements Initializable {
         stage.setScene(new Scene(root));
         stage.setResizable(false);
         stage.show();
-
         cnt = 0;
+
+        System.out.println("s" + s);
+        System.out.println("i" + i);
     }
 
     // 라디오 버튼 선택 시,
     public void selected(ActionEvent ae) {
         // selectDough 에서 선택시, dname 에 값 저장
-        if (i == 0) {
-            if (group.getSelectedToggle() != null) {
-                dname = (String) group.getSelectedToggle().getUserData();
-                txt.setText(dname);
-                cnt = 1;
-            }
-            // selectSource 에서 선택시, sname 에 값 저장
-        } else if (i == 1) {
-            if (group.getSelectedToggle() != null) {
-                sname = (String) group.getSelectedToggle().getUserData();
-                txt.setText(dname + "\n" + sname);
-                cnt = 1;
-            }
-            // selectTopping 에서 선택시, tname 들에 값 저장
-        } else if (i == 2) {
-            if (cnt > 3) {
-                showWarn("더 이상 선택할 수 없습니다.");
-                group.getSelectedToggle().setSelected(false);
-            } else {
+        if (s == 1) {
+            if (i == 0) {
                 if (group.getSelectedToggle() != null) {
-                    if (cnt == 0) tname1 = (String) group.getSelectedToggle().getUserData();
-                    else if (cnt == 1) tname2 = (String) group.getSelectedToggle().getUserData();
-                    else if (cnt == 2) tname3 = (String) group.getSelectedToggle().getUserData();
-                    else if (cnt == 3) tname4 = (String) group.getSelectedToggle().getUserData();
-                    txt.setText(dname + "\n" + sname + "\n" + tname1 + "\n" + tname2 + "\n" + tname3 + "\n" + tname4);
-                    cnt++;
+                    dname = (String) group.getSelectedToggle().getUserData();
+                    txt.setText(dname);
+                    cnt = 1;
+                }
+                // selectSource 에서 선택시, sname 에 값 저장
+            } else if (i == 1) {
+                if (group.getSelectedToggle() != null) {
+                    sname = (String) group.getSelectedToggle().getUserData();
+                    txt.setText(dname + "\n" + sname);
+                    cnt = 1;
+                }
+                // selectTopping 에서 선택시, tname 들에 값 저장
+            } else if (i == 2) {
+                if (cnt > 3) {
+                    showWarn("더 이상 선택할 수 없습니다.");
+                    group.getSelectedToggle().setSelected(false);
+                } else {
+                    if (group.getSelectedToggle() != null) {
+                        if (cnt == 0) tname1 = (String) group.getSelectedToggle().getUserData();
+                        else if (cnt == 1) tname2 = (String) group.getSelectedToggle().getUserData();
+                        else if (cnt == 2) tname3 = (String) group.getSelectedToggle().getUserData();
+                        else if (cnt == 3) tname4 = (String) group.getSelectedToggle().getUserData();
+                        txt.setText(dname + "\n" + sname + "\n" + tname1 + "\n" + tname2 + "\n" + tname3 + "\n" + tname4);
+                        cnt++;
+                    }
+                }
+                // selectSideMenu 에서 선택시, sidename 들에 값 저장
+            } else if (i == 3) {
+                if (cnt > 2) {
+                    showWarn("더 이상 선택할 수 없습니다.");
+                    group.getSelectedToggle().setSelected(false);
+                } else {
+                    if (group.getSelectedToggle() != null) {
+                        if (cnt == 0) sidename1 = (String) group.getSelectedToggle().getUserData();
+                        else if (cnt == 1) sidename2 = (String) group.getSelectedToggle().getUserData();
+                        else if (cnt == 2) sidename3 = (String) group.getSelectedToggle().getUserData();
+                        txt.setText(dname + "\n" + sname + "\n" + tname1 + "\n" + tname2 + "\n" + tname3 + "\n" + tname4 + "\n" + sidename1 + "\n" + sidename2 + "\n" + sidename3);
+                        cnt++;
+                    }
                 }
             }
-            // selectSideMenu 에서 선택시, sidename 들에 값 저장
-        } else if (i == 3) {
-            if (cnt > 2) {
-                showWarn("더 이상 선택할 수 없습니다.");
-                group.getSelectedToggle().setSelected(false);
-            } else {
+        }
+
+        else {
+            if(i == 0){
                 if (group.getSelectedToggle() != null) {
-                    if (cnt == 0) sidename1 = (String) group.getSelectedToggle().getUserData();
-                    else if (cnt == 1) sidename2 = (String) group.getSelectedToggle().getUserData();
-                    else if (cnt == 2) sidename3 = (String) group.getSelectedToggle().getUserData();
-                    txt.setText(dname + "\n" + sname + "\n" + tname1 + "\n" + tname2 + "\n" + tname3 + "\n" + tname4 + "\n" + sidename1 + "\n" + sidename2 + "\n" + sidename3);
-                    cnt++;
+                    pname = (String) group.getSelectedToggle().getUserData();
+                    txt.setText(pname);
+                    cnt = 1;
+                }
+            }
+            else if (i == 3) {
+                if (cnt > 2) {
+                    showWarn("더 이상 선택할 수 없습니다.");
+                    group.getSelectedToggle().setSelected(false);
+                } else {
+                    if (group.getSelectedToggle() != null) {
+                        if (cnt == 0) sidename1 = (String) group.getSelectedToggle().getUserData();
+                        else if (cnt == 1) sidename2 = (String) group.getSelectedToggle().getUserData();
+                        else if (cnt == 2) sidename3 = (String) group.getSelectedToggle().getUserData();
+                        txt.setText(pname + "\n\n\n\n" + sidename1 + "\n" + sidename2 + "\n" + sidename3);
+                        cnt++;
+                    }
                 }
             }
         }
     }
-
 
     // 왼쪽
     public void onInfo(ActionEvent ae) {
@@ -236,10 +295,17 @@ public class SelectController extends LoginController implements Initializable {
         act = 0;
         cnt = 0;
 
-        if(!userid.equals("admin")) idInfo.setText(CustomerDAO.selectName(userid));
-        if (i == 0) txt.setText("");
-        else if (i == 1) txt.setText(dname);
-        else if (i == 2) txt.setText(dname + "\n" + sname);
-        else if (i == 3) txt.setText(dname + "\n" + sname + "\n" + tname1 + "\n" + tname2 + "\n" + tname3 + "\n" + tname4);
+        if (!userid.equals("admin")) idInfo.setText(CustomerDAO.selectName(userid));
+
+        if (s == 1) {
+            if (i == 0) txt.setText("");
+            else if (i == 1) txt.setText(dname);
+            else if (i == 2) txt.setText(dname + "\n" + sname);
+            else if (i == 3)
+                txt.setText(dname + "\n" + sname + "\n" + tname1 + "\n" + tname2 + "\n" + tname3 + "\n" + tname4);
+        } else {
+            if (i == 0) txt.setText("");
+            else if (i == 3) txt.setText(pname);
+        }
     }
 }

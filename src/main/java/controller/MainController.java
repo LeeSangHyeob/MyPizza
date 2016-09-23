@@ -21,6 +21,7 @@ public class MainController {
     public void showSuccess(String s){
         Alert conf = new Alert(Alert.AlertType.CONFIRMATION);
         conf.setTitle("Success!!");
+        conf.setHeaderText(null);
         conf.setContentText(s);
         ButtonType btn = new ButtonType("확인");
         conf.getButtonTypes().setAll(btn);

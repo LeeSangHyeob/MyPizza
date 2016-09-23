@@ -1,6 +1,5 @@
 package controller;
 
-import dao.CustomerDAO;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -38,6 +37,7 @@ public class MenuController extends LoginController implements Initializable {
         Stage stage = null;
 
         if (userid.equals("admin")){
+
             if (e.getTarget() == sales) {
                 loader = new FXMLLoader(getClass().getResource("/fxml/showSales.fxml"));
                 try {
@@ -45,12 +45,10 @@ public class MenuController extends LoginController implements Initializable {
                 } catch (Exception ex) {
                     ex.printStackTrace();
                 }
-
                 stage = new Stage();
                 stage.setScene(new Scene(root));
                 stage.setResizable(false);
                 stage.show();
-
             } else {
                 showSuccess("See you Soon~");
             }
@@ -79,6 +77,8 @@ public class MenuController extends LoginController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        if(!userid.equals("admin")) idInfo.setText(CustomerDAO.selectName(userid));
+        if(!userid.equals("admin")) idInfo.setText(userid);
+        i = 0;
+        s = 0;
     }
 }

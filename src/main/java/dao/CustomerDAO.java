@@ -7,6 +7,8 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by SteveLEE on 2016-09-18.
@@ -38,6 +40,8 @@ public class CustomerDAO {
     private static String selectSprice = " select sideprice from sidemenu where sidename = ? ";
     private static String selectTprice = " select tprice from topping where tname = ? ";
     private static String selectname = " select name from member where userid = ? ";
+
+    private  static  String orderlist = " select olistno, DNAME, SNAME, TNAME1,TNAME2,TNAME3,TNAME4,SIDENAME1,SIDENAME2,SIDENAME3 from  orderlist join orders using (olistno) JOIN MEMBER USING (userid) WHERE USERID= ? order by olistno ";
 
 
     public static Connection openConn() {
@@ -181,6 +185,7 @@ public class CustomerDAO {
             e.printStackTrace();
         } finally {
             closeConn(conn, pstmt, null);
+            System.out.println("insertOrderList");
         }
     }
 
@@ -318,5 +323,34 @@ public class CustomerDAO {
         }
 
         return result;
+    }
+
+    public  static List<OrderlistVO> Orderlist(String userid){
+        Connection conn = null;
+        PreparedStatement pstmt = null;
+        ResultSet rs = null;
+
+
+        List<OrderlistVO> olist = new ArrayList<>();
+
+        try {
+            conn = openConn();
+            pstmt = conn.prepareStatement(orderlist);
+            pstmt.setString(1,userid);
+
+            rs = pstmt.executeQuery();
+            while (rs.next()) {
+                OrderlistVO o = new OrderlistVO(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5)
+                        , rs.getString(6), rs.getString(7), rs.getString(8), rs.getString(9), rs.getString(10));
+                olist.add(o);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            closeConn(conn, pstmt, rs);
+        }
+
+        return olist;
+
     }
 }
