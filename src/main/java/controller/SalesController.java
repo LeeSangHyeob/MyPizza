@@ -39,8 +39,6 @@ public class SalesController implements Initializable {
 
     @FXML private Label total;
 
-
-
     private ObservableList<OrdersVO> olist=null;
 
     @Override
@@ -52,21 +50,20 @@ public class SalesController implements Initializable {
         ObservableList month = FXCollections.observableArrayList(rs);
         cbox.setItems(month);
 
-        showChart();
         orderdate.setCellValueFactory(new PropertyValueFactory<OrdersVO,String>("orderdate"));
-        orderno.setCellValueFactory(new PropertyValueFactory<OrdersVO,String>("orderno"));
+        orderno.setCellValueFactory(new PropertyValueFactory<OrdersVO,Integer>("orderno"));
         userid1.setCellValueFactory(new PropertyValueFactory<OrdersVO,String>("userid1"));
-        olistno.setCellValueFactory(new PropertyValueFactory<OrdersVO,String>("olistno"));
-        totalprice.setCellValueFactory(new PropertyValueFactory<OrdersVO, String>("totalprice"));
+        olistno.setCellValueFactory(new PropertyValueFactory<OrdersVO,Integer>("olistno"));
+        totalprice.setCellValueFactory(new PropertyValueFactory<OrdersVO, Integer>("totalprice"));
 
         olist = FXCollections.observableArrayList();
-        if(cbox.getSelectionModel().getSelectedItem() != null) {
-            List<OrdersVO> os = AdminDAO.allOrders();/*AdminDAO.Orders(Integer.parseInt(String.valueOf(cbox.getSelectionModel().getSelectedItem())));
-            for (OrdersVO o : os) olist.add(o);*/
+        if(cbox.getSelectionModel().getSelectedItem() == null) {
+            List<OrdersVO> os = AdminDAO.allOrders();
+            for (OrdersVO o : os) olist.setAll(os);
             adtv.setItems(olist);
 
-            //ObservableList t = FXCollections.observableArrayList(rs);
         }
+        total.setText(String.valueOf(AdminDAO.allSales()));
     }
 
     public void showList(){
@@ -74,10 +71,7 @@ public class SalesController implements Initializable {
         List<OrdersVO> os = AdminDAO.Orders(Integer.parseInt(String.valueOf(cbox.getSelectionModel().getSelectedItem())));
         for (OrdersVO o : os) olist.setAll(os);
         adtv.setItems(olist);
-    }
-
-    public void showChart() {
-        System.out.println(cbox.getSelectionModel().getSelectedItem());
+        total.setText(String.valueOf(AdminDAO.monthSales(Integer.parseInt(String.valueOf(cbox.getSelectionModel().getSelectedItem())))));
     }
 
     public void close(ActionEvent event) {

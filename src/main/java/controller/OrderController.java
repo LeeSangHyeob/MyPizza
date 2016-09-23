@@ -25,7 +25,7 @@ import java.util.ResourceBundle;
 /**
  * Created by java on 2016-09-22.
  */
-public class OrderController extends SelectController implements Initializable {
+public class OrderController extends MenuController implements Initializable {
 
     @FXML TableView bdtv;
     @FXML TableColumn olistno;
@@ -44,7 +44,6 @@ public class OrderController extends SelectController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
-
         olistno.setCellValueFactory(new PropertyValueFactory<OrderlistVO, Integer>("olistno"));
         dname.setCellValueFactory(new PropertyValueFactory<OrderlistVO, String>("dname"));
         sname.setCellValueFactory(new PropertyValueFactory<OrderlistVO, String>("sname"));
@@ -61,12 +60,6 @@ public class OrderController extends SelectController implements Initializable {
         for(OrderlistVO o : os)olist.add(o);
 
         bdtv.setItems(olist);
-
-        System.out.println(CustomerDAO.Orderlist(userid));
-
-        if(!userid.equals("admin")) idInfo.setText(userid);
-
-
     }
 
     public void gohome(ActionEvent event) {

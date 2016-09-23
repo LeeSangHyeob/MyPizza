@@ -21,9 +21,9 @@ public class AdminDAO {
     private static final String pwd = "MYPIZZA";
 
     private static String allsales = "select sum(totalprice) from orders ";
-    private static String allorders = "select * from orders ";
+    private static String allorders = "select orderdate, orderno, userid, olistno, totalprice from orders ";
     private static String orders = " select orderdate, orderno, userid, olistno, totalprice from ORDERs  where TO_NUMBER(substr(ORDERDATE, 4,2)) = ? ";
-    private static String monthsales = " select sum(totalprice)  where TO_NUMBER(substr(ORDERDATE, 4,2)) = ? ";
+    private static String monthsales = " select sum(totalprice) from orders where TO_NUMBER(substr(ORDERDATE, 4,2)) = ? ";
 
     public static Connection openConn() {
 
@@ -144,7 +144,7 @@ public class AdminDAO {
         return result;
     }
 
-    public static int monthSales() {
+    public static int monthSales(int month) {
 
         Connection conn = null;
         PreparedStatement pstmt = null;
@@ -157,6 +157,7 @@ public class AdminDAO {
         try {
             conn = openConn();
             pstmt = conn.prepareStatement(monthsales);
+            pstmt.setInt(1, month);
             rs = pstmt.executeQuery();
 
             while (rs.next()) {

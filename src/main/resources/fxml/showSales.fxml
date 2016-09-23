@@ -29,6 +29,11 @@
             <Font size="20.0" />
          </font>
       </Label>
+      <Label fx:id="total">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
       <HBox alignment="CENTER" prefHeight="42.0" prefWidth="600.0" spacing="50.0">
          <children>
             <Button mnemonicParsing="false" text="닫기" />

@@ -25,11 +25,6 @@ public class CustomerDAO {
     private static String idchecked = "select userid from member where userid = ?";
     private static String loginchecked = "select userid from member where userid = ? and pwd = ?";
 
-    private static String showorder = " select userid,name,dname,sname,tname1,tname2,tname3," +
-            "tname4,sidename1,sidename2,sidename3 from MEMBER JOIN orders using (userid) JOIN ORDERLIST USING (olistno) WHERE  (userid = ?," +
-            " dname=?, sname = ? , tname1 = ? ,tname2= ?, tname3 = ?, tname4= ?, sidename1 = ?," +
-            " sidename2 = ? , sidename3 = ?)";
-
     private static String istOrder = " insert into orders (orderno, userid, olistno, TOTALPRICE)  values (orderno.nextval, ?, (select max(olistno) from orderlist), ?)";
     private static String selectDprice = " select dprice from dough where dname = ? ";
     private static String selectSprice = " select sideprice from sidemenu where sidename = ? ";
@@ -184,33 +179,6 @@ public class CustomerDAO {
         }
     }
 
-    public static void showOrder(OrderlistVO o, String userid) {
-        Connection conn = null;
-        PreparedStatement pstmt = null;
-        ResultSet rs = null;
-
-        try {
-            conn = openConn();
-            pstmt = conn.prepareStatement(showorder);
-            pstmt.setString(1, userid);
-            pstmt.setString(2, o.getDname());
-            pstmt.setString(3, o.getSname());
-            pstmt.setString(4, o.getTname1());
-            pstmt.setString(5, o.getTname2());
-            pstmt.setString(6, o.getTname3());
-            pstmt.setString(7, o.getTname4());
-            pstmt.setString(8, o.getSidename1());
-            pstmt.setString(9, o.getSidename2());
-            pstmt.setString(10, o.getSidename3());
-            rs = pstmt.executeQuery();
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            closeConn(conn, pstmt, rs);
-        }
-    }
-
     public static void insertOrder(String userid, int totalprice) {
         Connection conn = null;
         PreparedStatement pstmt = null;
@@ -344,8 +312,6 @@ public class CustomerDAO {
         } finally {
             closeConn(conn, pstmt, rs);
         }
-
         return olist;
-
     }
 }

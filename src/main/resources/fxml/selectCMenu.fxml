@@ -35,18 +35,6 @@
                                 <Insets left="5.0" right="5.0" />
                             </opaqueInsets>
                      <items>
-                        <Button fx:id="home" mnemonicParsing="false" onAction="#actTool" prefHeight="40.0" prefWidth="40.0" textAlignment="CENTER">
-                           <graphic>
-                              <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="/img/home.png" />
-                                 </image>
-                              </ImageView>
-                           </graphic>
-                           <opaqueInsets>
-                              <Insets />
-                           </opaqueInsets>
-                        </Button>
                         <Button fx:id="logout" mnemonicParsing="false" onAction="#actTool" prefHeight="40.0" prefWidth="40.0" textAlignment="CENTER">
                            <graphic>
                               <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
