@@ -34,6 +34,10 @@ public class SelectController extends MenuController implements Initializable {
     @FXML
     public Label idInfo;
 
+
+    // 데이터 저장을 위한 주문목록 데이터의 전역변수 선언
+    // 페이지 이동 시마다 해당 변수의 값을 유지시키기 위해서 전역 변수로 선언
+    // 만약 이런 식으로 안했으면 객체에 데이터를 저장하거나 각각의 변수들을 매번 저장해놓고 옮겨야 하는 번거로움이 있음
     public static String sname = "";
     public static String dname = "";
     public static String tname1 = "";
@@ -65,6 +69,8 @@ public class SelectController extends MenuController implements Initializable {
 
     public static String rs = null;
 
+
+    // 다음 버튼 클릭 시
     public void nextPage(ActionEvent ae) {
         Stage stage = null;
         FXMLLoader loader = null;
@@ -72,17 +78,33 @@ public class SelectController extends MenuController implements Initializable {
 
         stage = (Stage) next.getScene().getWindow();
 
+        // 커스텀 메뉴에서,
         if (s == 1) {
+
+            // 페이지가 selectDough.fxml 이면,
             if (i == 0) {
+
+                // 메뉴가 하나 선택 되었다면,
                 if (cnt != 0) {
+
+                    // selectSource fxml로 페이지 이동
                     loader = new FXMLLoader(getClass().getResource("/fxml/selectSource.fxml"));
                     i = 1;
+
+                    // 메뉴가 하나도 선택이 안되었다면,
                 } else showWarn("메뉴를 선택해주세요.");
-                System.out.println(cnt);
+
+                // 페이지가 selectSource fxml 이라면,
             } else if (i == 1) {
+
+                // 메뉴가 선택되었다면,
                 if (cnt != 0) {
+
+                    // selectTopping fxml로 페이지 이동
                     loader = new FXMLLoader(getClass().getResource("/fxml/selectTopping.fxml"));
                     i = 2;
+
+                    // 메뉴가 선택이 안되었다면
                 } else showWarn("메뉴를 선택해주세요.");
                 tname1 = "";
                 tname2 = "";
@@ -91,26 +113,48 @@ public class SelectController extends MenuController implements Initializable {
                 sidename1 = "";
                 sidename2 = "";
                 sidename3 = "";
-                System.out.println(cnt);
+
+                // 페이지가 selectTopping fxml 이라면
             } else if (i == 2) {
+
+                // 메뉴가 선택되었다면,
                 if (cnt != 0) {
                     loader = new FXMLLoader(getClass().getResource("/fxml/selectSideMenu.fxml"));
                     i = 3;
+
+                    // 메뉴가 선택되지 않았다면,
                 } else showWarn("메뉴를 선택해주세요");
-                System.out.println(cnt);
+
+                // 페이지가 selectSidemenu fxml 이라면
             } else if (i == 3) {
                 //loader = new FXMLLoader(getClass().getResource("/fxml/CPayment.fxml"));
+
+                // loading1 fxml로 이동
                 loader = new FXMLLoader(getClass().getResource("/fxml/loading1.fxml"));
                 i = 4;
             }
+
+            // 베이직 메뉴 선택 시
         } else if(s == 0) {
+
+            // selectBasic fxml 페이지라면,
             if (i == 0) {
+
+                // 메뉴가 선택되었다면,
                 if (cnt != 0) {
+
+                    // selectSideMenu fxml로 페이지 이동
                     loader = new FXMLLoader(getClass().getResource("/fxml/selectSideMenu.fxml"));
                     i = 3;
+
+                    // 메뉴가 선택 안되었다면,
                 } else showWarn("메뉴를 선택해주세요.");
+
+                // selectSidemenu fxml 페이지라면,
             } else if(i == 3){
                 //loader = new FXMLLoader(getClass().getResource("/fxml/BPayment.fxml"));
+
+                // loading2 fxml로 페이지 이동
                 loader = new FXMLLoader(getClass().getResource("/fxml/loading2.fxml"));
                 i = 4;
             }
@@ -126,12 +170,11 @@ public class SelectController extends MenuController implements Initializable {
         stage.setResizable(false);
         stage.show();
 
-        System.out.println("s" + s);
-        System.out.println("i" + i);
-
+        // 페이지 이동 시마다 cnt 값을 0 초기화
         cnt = 0;
     }
 
+    // 이전 버튼 클릭 시
     public void prevPage(ActionEvent ae) {
         Stage stage = null;
         FXMLLoader loader = null;
@@ -139,8 +182,13 @@ public class SelectController extends MenuController implements Initializable {
 
         stage = (Stage) next.getScene().getWindow();
 
+        // 커스텀 메뉴 선택 시
         if (s == 1) {
+
+            // selectSidemenu fxml 이라면
             if (i == 3) {
+
+                // 이전에 선택된 데이터들을 초기화 시켜줌, 다시 선택
                 tname1 = "";
                 tname2 = "";
                 tname3 = "";
@@ -148,25 +196,49 @@ public class SelectController extends MenuController implements Initializable {
                 sidename1 = "";
                 sidename2 = "";
                 sidename3 = "";
+
+                // selectTopping fxml 로 이동
                 loader = new FXMLLoader(getClass().getResource("/fxml/selectTopping.fxml"));
                 i = 2;
+
+                // selectTopping fxml 이라면
             } else if (i == 2) {
+
+                // 이전에 선택된 데이터들을 초기화 시켜줌, 다시 선택
                 tname1 = "";
                 tname2 = "";
                 tname3 = "";
                 tname4 = "";
                 sname = "";
+
+                // selectSource fxml 이동
                 loader = new FXMLLoader(getClass().getResource("/fxml/selectSource.fxml"));
                 i = 1;
+
+                // selectSource  fxml 이라면
             } else if (i == 1) {
+
+                // 이전에 선택된 데이터들을 초기화 시켜줌, 다시 선택
                 dname = "";
+
+                // selectdough fxml 이동
                 loader = new FXMLLoader(getClass().getResource("/fxml/selectDough.fxml"));
                 i = 0;
+
+                // selectdough fxml 이라면
             } else if (i == 0) {
+
+                // selectcmenu fxml로 이동
                 loader = new FXMLLoader(getClass().getResource("/fxml/selectCMenu.fxml"));
             }
+
+            // 베이직 메뉴 선택 시
         } else {
+
+            // selectSidemenu fxml 이라면
             if (i == 3) {
+
+                // 이전에 선택된 데이터들을 초기화 시켜줌, 다시 선택
                 tname1 = "";
                 tname2 = "";
                 tname3 = "";
@@ -174,10 +246,16 @@ public class SelectController extends MenuController implements Initializable {
                 sidename1 = "";
                 sidename2 = "";
                 sidename3 = "";
+
+                // selectBasic fxml 이동
                 loader = new FXMLLoader(getClass().getResource("/fxml/selectBasic.fxml"));
                 i = 0;
+
+                // selectBasic fxml 이라면
             } else {
                 pname = "";
+
+                // selectCmenu fxml 이동
                 loader = new FXMLLoader(getClass().getResource("/fxml/selectCMenu.fxml"));
             }
         }
@@ -191,14 +269,16 @@ public class SelectController extends MenuController implements Initializable {
         stage.setScene(new Scene(root));
         stage.setResizable(false);
         stage.show();
+
+        // 페이지 이동시 마다 cnt 값을 초기화
         cnt = 0;
 
-        System.out.println("s" + s);
-        System.out.println("i" + i);
     }
 
     // 라디오 버튼 선택 시,
     public void selected(ActionEvent ae) {
+
+        // 커스텀 메뉴 선택 시
         // selectDough 에서 선택시, dname 에 값 저장
         if (s == 1) {
             if (i == 0) {
@@ -246,7 +326,10 @@ public class SelectController extends MenuController implements Initializable {
             }
         }
 
+        // 베이직 메뉴 선택 시
         else {
+
+            // selectBasic 페이지라면, 선택한 베이직 피자의 데이터를 pname 변수에 저장
             if(i == 0){
                 if (group.getSelectedToggle() != null) {
                     pname = (String) group.getSelectedToggle().getUserData();
@@ -254,6 +337,8 @@ public class SelectController extends MenuController implements Initializable {
                     cnt = 1;
                 }
             }
+
+            // selectSideMenu 에서 선택시, sidename 들에 값 저장
             else if (i == 3) {
                 if (cnt > 2) {
                     showWarn("더 이상 선택할 수 없습니다.");
@@ -291,6 +376,8 @@ public class SelectController extends MenuController implements Initializable {
         }
     }
 
+
+    // 초기화
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
@@ -299,6 +386,7 @@ public class SelectController extends MenuController implements Initializable {
 
         if (!userid.equals("admin")) idInfo.setText(CustomerDAO.selectName(userid));
 
+        // 페이지마다 onInfo 에 있는 textArea에 들어갈 데이터들을 다르게 셋팅해줘야 함
         if (s == 1) {
             if (i == 0) txt.setText("");
             else if (i == 1) txt.setText(dname);

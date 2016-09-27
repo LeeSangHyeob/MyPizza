@@ -20,9 +20,17 @@ public class AdminDAO {
     private static final String usr = "MYPIZZA";
     private static final String pwd = "MYPIZZA";
 
+
+    // 총 매출액 조회하는 sql문
     private static String allsales = "select sum(totalprice) from orders ";
+
+    // 모든 주문을 조회하는 sql문
     private static String allorders = "select orderdate, orderno, userid, olistno, totalprice from orders ";
+
+    // 해당하는 월의 주문을 조회하는 sql문
     private static String orders = " select orderdate, orderno, userid, olistno, totalprice from ORDERs  where TO_NUMBER(substr(ORDERDATE, 4,2)) = ? ";
+
+    // 월 매출액을 조회하는 sql문
     private static String monthsales = " select sum(totalprice) from orders where TO_NUMBER(substr(ORDERDATE, 4,2)) = ? ";
 
     public static Connection openConn() {
@@ -60,6 +68,7 @@ public class AdminDAO {
         }
     }
 
+    // 월 매출 내역을 조회하는 메서드
     public static List<OrdersVO> Orders(int month) {
 
         Connection conn = null;
@@ -90,6 +99,7 @@ public class AdminDAO {
         return olist;
     }
 
+    // 모든 매출을 조회하는 메서드
     public static List<OrdersVO> allOrders() {
 
         Connection conn = null;
@@ -118,6 +128,7 @@ public class AdminDAO {
         return olist;
     }
 
+    // 전체 매출액을 조회하는 메서드
     public static int allSales() {
 
         Connection conn = null;
@@ -144,6 +155,7 @@ public class AdminDAO {
         return result;
     }
 
+    // 해당하는 월 매출액을 조회하는 메서드
     public static int monthSales(int month) {
 
         Connection conn = null;

@@ -15,6 +15,8 @@ import java.util.ResourceBundle;
 /**
  * Created by java on 2016-09-21.
  */
+
+// 모든 메뉴를 선택 후 스플래쉬 이미지로 넘어가는 컨트롤러
 public class loadingController implements Initializable {
     @FXML
     public ProgressBar pgbar;

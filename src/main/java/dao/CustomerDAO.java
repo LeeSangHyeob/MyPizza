@@ -20,17 +20,34 @@ public class CustomerDAO {
     private static final String usr = "MYPIZZA";
     private static final String pwd = "MYPIZZA";
 
+    // 회원가입 sql
     private static String istMember = "insert into member (userid, pwd, name, birth) values (?, ?, ?, ?)";
+
+    // 주문 목록 입력 sql
     private static String istOrderlist = "insert into orderlist values (olistno.nextval, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+
+    // 아이디 중복체크 sql
     private static String idchecked = "select userid from member where userid = ?";
+
+    // 로그인 확인 sql
     private static String loginchecked = "select userid from member where userid = ? and pwd = ?";
 
+    // 주문 입력 sql
     private static String istOrder = " insert into orders (orderno, userid, olistno, TOTALPRICE)  values (orderno.nextval, ?, (select max(olistno) from orderlist), ?)";
+
+    // 도우 가격조회 조회 sql
     private static String selectDprice = " select dprice from dough where dname = ? ";
+
+    // 사이드메뉴 가격조회 sql
     private static String selectSprice = " select sideprice from sidemenu where sidename = ? ";
+
+    // 토핑메뉴 가격조회 sql
     private static String selectTprice = " select tprice from topping where tname = ? ";
+
+    // 로그인 세션 유지를 위한 이름을 저장하는 sql
     private static String selectname = " select name from member where userid = ? ";
 
+    // 주문 내역 출력을 위한 sql문
     private  static  String orderlist = " select olistno, DNAME, SNAME, TNAME1,TNAME2,TNAME3,TNAME4,SIDENAME1,SIDENAME2,SIDENAME3 from  orderlist join orders using (olistno) JOIN MEMBER USING (userid) WHERE USERID= ? order by olistno ";
 
 
@@ -69,6 +86,7 @@ public class CustomerDAO {
         }
     }
 
+    // 회원가입 메서드
     public static void insertMember(MemberVO m) {
 
         Connection conn = null;
@@ -92,6 +110,8 @@ public class CustomerDAO {
         }
     }
 
+
+    // 아이디 중복체크 메서드
     public static String idChecked(String userid) {
 
         Connection conn = null;
@@ -119,6 +139,8 @@ public class CustomerDAO {
         return checked;
     }
 
+
+    //로그인 체크 메서드
     public static String loginChecked(String userid, String pwd) {
 
         Connection conn = null;
@@ -151,6 +173,7 @@ public class CustomerDAO {
         return checked;
     }
 
+    // 주문목록 입력 메서드
     public static void insertOrderList(OrderlistVO o) {
         Connection conn = null;
         PreparedStatement pstmt = null;
@@ -179,6 +202,8 @@ public class CustomerDAO {
         }
     }
 
+
+    // 주문  입력 메서드
     public static void insertOrder(String userid, int totalprice) {
         Connection conn = null;
         PreparedStatement pstmt = null;
@@ -196,6 +221,8 @@ public class CustomerDAO {
         }
     }
 
+
+    // 도우 가격 조회하는 메서드
     public static int selectDprice(String dname) {
         Connection conn = null;
         PreparedStatement pstmt = null;
@@ -219,6 +246,8 @@ public class CustomerDAO {
         return result;
     }
 
+
+    //사이드 메뉴가격 조회 메서드
     public static int selectSprice(String sidename) {
         Connection conn = null;
         PreparedStatement pstmt = null;
@@ -242,6 +271,8 @@ public class CustomerDAO {
         return result;
     }
 
+
+    // 토핑 가격 조회 메서드
     public static int selectTprice(String tname) {
         Connection conn = null;
         PreparedStatement pstmt = null;
@@ -265,6 +296,7 @@ public class CustomerDAO {
         return result;
     }
 
+    // 이름 조회 메서드
     public static String selectName(String userid) {
         Connection conn = null;
         PreparedStatement pstmt = null;
@@ -288,6 +320,7 @@ public class CustomerDAO {
         return result;
     }
 
+    // 주문 내역 출력하는 메서드
     public  static List<OrderlistVO> Orderlist(String userid){
         Connection conn = null;
         PreparedStatement pstmt = null;

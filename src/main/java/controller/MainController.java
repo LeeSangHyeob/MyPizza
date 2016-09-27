@@ -10,6 +10,7 @@ import javafx.scene.control.ButtonType;
  */
 public class MainController {
 
+    // 경고 Alert 창
     public void showWarn(String s) {
         Alert warn = new Alert(Alert.AlertType.WARNING);
         warn.setTitle("ERROR!!");
@@ -18,6 +19,7 @@ public class MainController {
         warn.showAndWait();
     }
 
+    // 성공 Alert 창
     public void showSuccess(String s){
         Alert conf = new Alert(Alert.AlertType.CONFIRMATION);
         conf.setTitle("Success!!");
@@ -28,6 +30,7 @@ public class MainController {
         conf.showAndWait();
     }
 
+    // 프로그램 정보 Alert 창
     public void showPinfo (){
         Alert pinfo = new Alert(Alert.AlertType.INFORMATION);
         pinfo.setTitle("MyPizza");

@@ -16,6 +16,8 @@ import java.util.ResourceBundle;
 /**
  * Created by SteveLEE on 2016-09-16.
  */
+
+// JoinController : join.fxml 에서 사용되는 컨트롤러
 public class JoinController extends MainController implements Initializable {
 
     // 생년월일 콤보박스에 들어갈 아이템들을 저장할 변수
@@ -40,12 +42,15 @@ public class JoinController extends MainController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
+        // combobox인 ybox에 들어갈 데이터들을 정의하고 ybox에 해당 데이터들을 셋팅(1960~2016)
         for (int i = 0; i <= 56; i++) {
             yrs[i] = (i + 1960) + "";
         }
         ObservableList year = FXCollections.observableArrayList(yrs);
         ybox.setItems(year);
 
+
+        // combobox 인 mbox 에 들어갈 데이터들을 정의하고 mbox에 해당 데이터들을 셋팅 (1~12)
         for (int i = 0; i < 12; i++) {
             mrs[i] = (i + 1) + "";
         }
@@ -53,12 +58,15 @@ public class JoinController extends MainController implements Initializable {
         ObservableList month = FXCollections.observableArrayList(mrs);
         mbox.setItems(month);
 
+
+        // dbox에 들어갈 데이터 정의 및 셋팅 (1 ~ 31)
         for (int i = 0; i < 31; i++) {
             drs[i] = (i + 1) + "";
         }
 
         ObservableList day = FXCollections.observableArrayList(drs);
         dbox.setItems(day);
+
     }
 
     // 가입하기 버튼 클릭시 이벤트 발생
@@ -82,6 +90,7 @@ public class JoinController extends MainController implements Initializable {
         } else if (!cbox.isSelected()){
             showWarn("가입 동의 버튼을 체크해주세요.");
             cbox.requestFocus();
+            // CustomerDAO.idChecked : 중복된 아이디가 있는지 검사하는 메서드, sql문을 이용하여 해당하는 아이디가 있으면 'no' 값을 반환
         } else if (CustomerDAO.idChecked(uid.getText()).equals("no")){
             showWarn("존재하는 아이디입니다.");
             uid.requestFocus();
@@ -93,7 +102,7 @@ public class JoinController extends MainController implements Initializable {
             // 컨트롤들을 통해서 입력받은 데이터를 바탕으로 MemberVO 객체를 생성
             MemberVO m = new MemberVO(uid.getText(), pwd.getText(), name.getText(), rs);
 
-            // MemberVO 객체 m 을 DB에 저장
+            // MemberVO 객체 m 을 DB에 저장하여 CustomerDAO.insertMember 메서드를 실행, 멤버 데이터를 저장, 회원 가입이 완료됨
             CustomerDAO.insertMember(m);
             showSuccess("로그인 창으로 넘어갑니다.");
         }
